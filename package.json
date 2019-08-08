@@ -5,6 +5,7 @@
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-router-dom": "4.2.2",
     "react-scripts": "3.0.1"
   },
   "scripts": {
@@ -36,6 +37,7 @@
     "react-redux": "^7.1.0",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
-    "webpack": "^4.39.1"
+    "superagent": "^3.8.3",
+    "webpack": "4.29.6"
   }
 }

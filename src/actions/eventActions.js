@@ -1,16 +1,57 @@
-import { FETCH_EVENTS } from './typeActions'
+// Constants
+import {
+    FETCH_EVENT_LIST_DATA,
+    FETCH_EVENT_LIST_PAGE,
+    FETCH_EVENT_LIST_LOADING,
+    FETCH_EVENT_RETRIEVE_DATA,
+    FETCH_EVENT_RETRIEVE_LOADING
+} from 'constants/actionConstants';
 
-const API = 'https://app.ticketmaster.com/discovery/v1/events.json?apikey=3er65DQ0rElbfzXfAJ1xlbzVI0k1OkNf'
 
-export const fetchData = () => dispatch => {
-    fetch(API)
-        .then(res => res.json())
-        .then(data => {
-            const eventsType = data._embedded.events;
-            dispatch({
-                type: FETCH_EVENTS,
-                payload: eventsType
-            })
-        })
+// Event List
+export function fetchEventListData(data){
+    return {
+      type: FETCH_EVENT_LIST_DATA,
+      payload: {
+          data: data
+      }
+    }
 }
 
+
+export function fetchEventListPage(page){
+    return {
+      type: FETCH_EVENT_LIST_PAGE,
+      payload: {
+          page: page
+      }
+    }
+}
+
+export function fetchEventListLoading(loading){
+    return {
+      type: FETCH_EVENT_LIST_LOADING,
+      payload: {
+          loading: loading
+      }
+    }
+}
+
+// Event Detail
+export function fetchEventRetrieveData(data){
+  return {
+    type: FETCH_EVENT_RETRIEVE_DATA,
+    payload: {
+        data: data
+    }
+  }
+}
+
+export function fetchEventRetrieveLoading(loading){
+    return {
+      type: FETCH_EVENT_RETRIEVE_LOADING,
+      payload: {
+          loading: loading
+      }
+    }
+}

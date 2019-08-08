@@ -1,2 +1,0 @@
-export const FETCH_EVENTS = "FETCH_EVENTS";
-export const SEARCH_EVENTS = "SEARCH_EVENTS";

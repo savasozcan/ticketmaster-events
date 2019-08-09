@@ -2,6 +2,78 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
+import styled from 'styled-components';
+
+//Syles
+const AppWrapper = styled.table`
+    width: 100%;
+    text-align: center;
+    position: relative;
+    
+`
+const AppRow = styled.td`
+    width:100%;
+    display:block;
+    padding: 20px 0;
+    transition: background .4s ease;
+    &:nth-child(odd) {
+        &:hover {
+            background:#ede1e1
+        }
+    }
+    &:nth-child(even) {
+        background: #F5F5F5;
+        &:hover {
+            background: #ede1e1
+        }
+    }
+`
+const AppDetail = styled.td`
+    position: absolute;
+    right: 30px;
+    margin-top: -13px;
+    background: #7f6d6d;
+    padding: 15px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: transform .4s;
+    &:hover {
+        transform: scale(1.2); 
+    }
+`
+const AppDate = styled.td`
+
+`
+const AppLocation = styled.td`
+    padding-left: 100px;
+`
+const AppButton = styled.button`
+    background: transparent;
+    background-color: #ede1e1;
+    border: none;
+    padding: 15px 20px;
+    margin-top: 5%;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color .4s ease;
+    &:hover {
+        background-color: #F5F5F5;
+    }
+`
+const AppLink = styled.span`
+    & a{
+        text-decoration: none;
+        color: #fff;
+        font-size: 18px;
+    }
+`
+const AppName = styled.span`
+    font-size: 20px;
+    font-weight: 700;
+`
+const AppCity = styled.span`
+    font-size: 12px;
+`
 
 // Actions
 import {
@@ -87,20 +159,54 @@ class EventTable extends Component {
         return (
             <div>
                 {events.data.length > 0 && (
-                    <ul>
-                        {events.data.map((value, index) =>
-                            <li key={index}>
-                                <p>{value.name}</p>
-                                <Link to={createUrl("event", value.id)}>Detail</Link>
-                            </li>
-                        )}
-                    </ul>
+                    <AppWrapper>
+                        {
+                            events.data.map((value, index) =>{
+                        
+                                return (
+                            <AppRow>
+                                <tr key={index}>
+                                    <AppDate>Date: { value.dates.start.localDate}</AppDate>
+                                    <AppLocation>
+                                        <AppName>{ value.name }</AppName>  (<AppCity>{ value.dates.timezone }</AppCity>)
+                                    </AppLocation>
+                                    <AppDetail><AppLink><Link to={createUrl("event", value.id)}>Detail</Link></AppLink></AppDetail>
+                                </tr>
+                            </AppRow>
+                            )
+                        })}
+                    </AppWrapper>
+                    // <div>
+                    //     {
+                    //         events.data.map((value, index) =>
+                    //         console.log(value)
+                            
+                    //             // <DataTable
+
+                    //             //     key={index}
+                    //             //     title="Arnold Movies"
+                    //             //     // columns={value.name}
+                    //             //     data={events}
+                    //             //     pagination={true}
+                    //             // />
+                    //     )}
+                    // </div>
+
+
+                    // <ul>
+                    //     {events.data.map((value, index) =>
+                    //         <li key={index}>
+                    //             <p>{value.locale}</p>
+                    //             <Link to={createUrl("event", value.id)}>Detail</Link>
+                    //         </li>
+                    //     )}
+                    // </ul>
                 )}
 
                 {events.loading ? (
                     <p>Loading...</p>
                 ) : hasNextPage && (
-                    <button onClick={this.loadMore} type="button" className="load-more">Load more</button>
+                    <AppButton onClick={this.loadMore} type="button" className="load-more">Load more</AppButton>
                 )}
             </div>
         );

@@ -5,7 +5,7 @@ import {
     FETCH_EVENT_LIST_LOADING,
     FETCH_EVENT_RETRIEVE_DATA,
     FETCH_EVENT_RETRIEVE_LOADING
-} from 'constants/actionConstants';
+} from '../constants/actionConstants';
 
 
 // Event List

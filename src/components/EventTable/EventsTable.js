@@ -8,13 +8,13 @@ import {
     fetchEventListData,
     fetchEventListPage,
     fetchEventListLoading
-} from "actions/eventActions";
+} from "../../actions/eventActions";
 
 // Constants
-import { createUrl } from 'constants/baseConstants';
+import { createUrl } from '../../constants/baseConstants';
 
 // Services
-import { listEvent } from "services/eventServices";
+import { listEvent } from "../../services/eventServices";
 
 
 class EventTable extends Component {

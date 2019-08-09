@@ -10,10 +10,10 @@ import { connect } from "react-redux";
 import {
     fetchEventRetrieveData,
     fetchEventRetrieveLoading
-} from "actions/eventActions";
+} from "../../actions/eventActions";
 
 // Services
-import { retrieveEvent } from "services/eventServices";
+import { retrieveEvent } from "../../services/eventServices";
 
 
 class EventRetrieve extends Component {

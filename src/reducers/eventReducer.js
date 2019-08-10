@@ -8,13 +8,13 @@ import {
 } from '../constants/actionConstants';
 
 
-var listState = {
+export var listState = {
     data: [],
     page: {},
     loading: false,
 }
 
-var retrieveState = {
+export var retrieveState = {
     data: {},
     loading: false,
 }

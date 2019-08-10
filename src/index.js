@@ -8,6 +8,8 @@ import AppRouter from './router';
 import { rootReducer } from './reducers/rootReducers';
 import * as serviceWorker from './serviceWorker';
 
+import 'babel-polyfill';
+
 
 const middleware = [thunk];
 const composeEnhancers =

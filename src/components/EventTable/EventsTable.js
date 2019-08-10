@@ -35,7 +35,7 @@ const AppRow = styled.tr`
 const AppDetail = styled.td`
     position: absolute;
     right: 30px;
-    margin-top: -40px;
+    margin-top: -50px;
     background: #7f6d6d;
     padding: 15px 20px;
     text-decoration: none;
@@ -181,7 +181,7 @@ class EventTable extends Component {
                                             <AppDate><AppText>Date:</AppText> { value.dates.start.localDate}</AppDate>
                                             <AppLocation>
                                                 <AppName>{ value.name }</AppName> <br/>
-                                                <AppCity><i>{ value.dates.timezone }</i></AppCity>
+                                                <AppCity><i>{ value.dates.timezone.split('_').join(' ') }</i></AppCity>
                                             </AppLocation>
                                             <AppDetail><AppLink><Link to={createUrl("event", value.id)}>Detail</Link></AppLink></AppDetail>
                                         </AppRow>

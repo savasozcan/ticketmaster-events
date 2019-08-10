@@ -122,7 +122,7 @@ class EventRetrieve extends Component {
                         <AppWrapperDetail>
                         <AppName>{event.data[eventId]._embedded.venue[0].name}</AppName>
                         <p><AppSpan className="info">Adress:</AppSpan> {event.data[eventId]._embedded.venue[0].address.line1} / {event.data[eventId]._embedded.venue[0].address.line2}</p>
-                        <AppZone>{event.data[eventId]._embedded.venue[0].timeZone}</AppZone>
+                        <AppZone>{event.data[eventId]._embedded.venue[0].timeZone.split('_').join(' ')}</AppZone>
                         <br/><br/>
                         <span><AppSpan className="info">Date:</AppSpan> {event.data[eventId].dates.start.localDate}</span>
                     </AppWrapperDetail>

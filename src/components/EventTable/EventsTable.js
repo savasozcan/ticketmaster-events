@@ -6,16 +6,20 @@ import styled from 'styled-components';
 
 //Syles
 const AppWrapper = styled.table`
-    width: 100%;
-    text-align: center;
     position: relative;
+    width: 85%;
+    margin: 0 auto;
+    text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
     
 `
 const AppRow = styled.tr`
     width:100%;
     display:block;
-    padding: 20px 0;
+    padding: 30px 0;
     transition: background .4s ease;
+    border-bottom: 1px solid #dbd0d0;
+    color: #7f6d6d;
     &:nth-child(odd) {
         &:hover {
             background:#ede1e1
@@ -42,7 +46,12 @@ const AppDetail = styled.td`
     }
 `
 const AppDate = styled.td`
-
+    padding-left: 10px;
+    color: #7f6d6d;
+`
+const AppText = styled.span`
+    font-size: 18px;
+    font-weight: 700;
 `
 const AppLocation = styled.td`
     padding-left: 100px;
@@ -70,9 +79,12 @@ const AppLink = styled.span`
 const AppName = styled.span`
     font-size: 20px;
     font-weight: 700;
+    color: #8e6666;
 `
 const AppCity = styled.span`
     font-size: 12px;
+    float: left;
+    color: #7f6d6d;
 `
 
 // Actions
@@ -166,9 +178,10 @@ class EventTable extends Component {
                             
                                     return (
                                         <AppRow key={index}>
-                                            <AppDate>Date: { value.dates.start.localDate}</AppDate>
+                                            <AppDate><AppText>Date:</AppText> { value.dates.start.localDate}</AppDate>
                                             <AppLocation>
-                                                <AppName>{ value.name }</AppName>  (<AppCity>{ value.dates.timezone }</AppCity>)
+                                                <AppName>{ value.name }</AppName> <br/>
+                                                <AppCity><i>{ value.dates.timezone }</i></AppCity>
                                             </AppLocation>
                                             <AppDetail><AppLink><Link to={createUrl("event", value.id)}>Detail</Link></AppLink></AppDetail>
                                         </AppRow>

@@ -10,13 +10,14 @@ import styled from 'styled-components';
 //Styles
 const AppWrapperDetail = styled.div`
     position: relative;
-    background: linear-gradient(245deg,#0ecde9,#025e83);
+    background: linear-gradient(245deg,#0b80aa,#025e83);
     padding: 20px;
     border-radius: 5px;
     width: 80%;
     margin: 0 auto;
     & h1, span, p {
-        color : #363636;
+        color : #fff;
+        font-family: 'Source Sans Pro', sans-serif;
     }
 `
 const AppName = styled.h1`

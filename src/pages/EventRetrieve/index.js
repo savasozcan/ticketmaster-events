@@ -5,6 +5,55 @@ import {
     Redirect
 } from 'react-router-dom';
 import { connect } from "react-redux";
+import styled from 'styled-components';
+
+//Styles
+const AppWrapperDetail = styled.div`
+    position: relative;
+    background: linear-gradient(245deg,#0ecde9,#025e83);
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%;
+    margin: 0 auto;
+    & h1, span, p {
+        color : #363636;
+    }
+`
+const AppName = styled.h1`
+    color: #fff;
+`
+
+const AppSpan = styled.span.attrs(props => ({
+    className: "info",
+  }))`
+    font-size: 22px;
+    font-weight: 700;
+`
+const AppHome = styled.span`
+    position: absolute;
+    top: 2%;
+    right: 10%;
+    background: #4c3737;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 5px;
+    transition: transform .4s;
+    &:hover {
+        transform: scale(1.1); 
+    }
+  & a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 700;
+  }
+`
+const AppZone = styled.span`
+  background: #1db51d;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 5px;
+`
 
 // Actions
 import {
@@ -66,13 +115,19 @@ class EventRetrieve extends Component {
 
         return (
             <div>
-                <Link to="/">Home Page</Link>
-
                 {event.loading && !event.data[eventId] ? (
                     <p>Loading...</p>
-                ) : event.data[eventId] && (
-                    <p>{event.data[eventId].name}</p>
+                    ) : event.data[eventId] && (
+                        <AppWrapperDetail>
+                        <AppName>{event.data[eventId]._embedded.venue[0].name}</AppName>
+                        <p><AppSpan className="info">Adress:</AppSpan> {event.data[eventId]._embedded.venue[0].address.line1} / {event.data[eventId]._embedded.venue[0].address.line2}</p>
+                        <AppZone>{event.data[eventId]._embedded.venue[0].timeZone}</AppZone>
+                        <br/><br/>
+                        <span><AppSpan className="info">Date:</AppSpan> {event.data[eventId].dates.start.localDate}</span>
+                    </AppWrapperDetail>
                 )}
+
+                <AppHome><Link to="/">Home Page</Link></AppHome>
             </div>
         );
     }

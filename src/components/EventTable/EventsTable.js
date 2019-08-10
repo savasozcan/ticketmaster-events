@@ -165,6 +165,7 @@ class EventTable extends Component {
                         
                                 return (
                             <AppRow>
+                                <tbody>
                                 <tr key={index}>
                                     <AppDate>Date: { value.dates.start.localDate}</AppDate>
                                     <AppLocation>
@@ -172,35 +173,11 @@ class EventTable extends Component {
                                     </AppLocation>
                                     <AppDetail><AppLink><Link to={createUrl("event", value.id)}>Detail</Link></AppLink></AppDetail>
                                 </tr>
+                                </tbody>
                             </AppRow>
                             )
                         })}
                     </AppWrapper>
-                    // <div>
-                    //     {
-                    //         events.data.map((value, index) =>
-                    //         console.log(value)
-                            
-                    //             // <DataTable
-
-                    //             //     key={index}
-                    //             //     title="Arnold Movies"
-                    //             //     // columns={value.name}
-                    //             //     data={events}
-                    //             //     pagination={true}
-                    //             // />
-                    //     )}
-                    // </div>
-
-
-                    // <ul>
-                    //     {events.data.map((value, index) =>
-                    //         <li key={index}>
-                    //             <p>{value.locale}</p>
-                    //             <Link to={createUrl("event", value.id)}>Detail</Link>
-                    //         </li>
-                    //     )}
-                    // </ul>
                 )}
 
                 {events.loading ? (

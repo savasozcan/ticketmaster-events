@@ -58,7 +58,7 @@ const AppRow = styled.tr`
 const AppDetail = styled.td`
     position: absolute;
     right: 30px;
-    margin-top: -50px;
+    margin-top: -80px;
     background: #7f6d6d;
     padding: 15px 20px;
     text-decoration: none;
@@ -196,6 +196,9 @@ const Pagination = styled.div`
 const NotFound = styled.div`
     text-align: center;
 `
+const AppThumb = styled.img`
+    width: 150px;
+`
 
 
 class EventTable extends Component {
@@ -256,6 +259,8 @@ class EventTable extends Component {
                                     return (
                                         <AppRow key={index}>
                                             <AppDate>
+                                                <AppThumb src={ event.images[2].url }/>
+                                                <br />
                                                 <AppText>Date:</AppText> {event.dates.start.localDate}
                                             </AppDate>
                                             <AppLocation>

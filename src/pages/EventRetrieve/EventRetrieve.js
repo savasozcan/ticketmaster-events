@@ -155,7 +155,7 @@ class EventRetrieve extends Component {
                 ) : event.data[eventId] && (
                     <AppWrapperDetail>
                         <AppName>{event.data[eventId].name}</AppName>
-                        <AppNameDetail>{event.data[eventId].name}</AppNameDetail>
+                        <AppNameDetail>{event.data[eventId].promoter.description}</AppNameDetail>
                             <p>
                                 <AppSpan className="info">Adress: </AppSpan>
                                 {event.data[eventId]._embedded && event.data[eventId]._embedded.venues.length > 0 && (

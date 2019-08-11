@@ -15,7 +15,7 @@ const AppWrapperDetail = styled.div`
     border-radius: 5px;
     width: 80%;
     margin: 0 auto;
-    & h1, span, p {
+    & h1, span, p, h3 {
         color : #fff;
         font-family: 'Source Sans Pro', sans-serif;
     }
@@ -23,7 +23,14 @@ const AppWrapperDetail = styled.div`
 const AppName = styled.h1`
     color: #fff;
 `
-
+const AppNameDetail = styled.h3`
+    display: inline-block;
+    font-weight: 700;
+    color: #fff;
+    background: #0b80aa;
+    padding: 5px 10px;
+    border-radius: 5px;    
+`
 const AppSpan = styled.span.attrs(props => ({
     className: "info",
   }))`
@@ -40,7 +47,7 @@ const AppHome = styled.span`
     border-radius: 5px;
     transition: transform .4s;
     &:hover {
-        transform: scale(1.1); 
+        transform: scale(1.1);
     }
   & a {
       text-decoration: none;
@@ -54,6 +61,9 @@ const AppZone = styled.span`
   font-size: 12px;
   font-weight: 700;
   border-radius: 5px;
+`
+const Loader = styled.div`
+    text-align: center;
 `
 
 // Actions
@@ -117,14 +127,22 @@ class EventRetrieve extends Component {
         return (
             <div>
                 {event.loading && !event.data[eventId] ? (
-                    <p>Loading...</p>
-                    ) : event.data[eventId] && (
-                        <AppWrapperDetail>
-                        <AppName>{event.data[eventId]._embedded.venue[0].name}</AppName>
-                        <p><AppSpan className="info">Adress:</AppSpan> {event.data[eventId]._embedded.venue[0].address.line1} / {event.data[eventId]._embedded.venue[0].address.line2}</p>
-                        <AppZone>{event.data[eventId]._embedded.venue[0].timeZone.split('_').join(' ')}</AppZone>
-                        <br/><br/>
-                        <span><AppSpan className="info">Date:</AppSpan> {event.data[eventId].dates.start.localDate}</span>
+                    <Loader>
+                        <p>Loading...</p>
+                    </Loader>
+                ) : event.data[eventId] && (
+                    <AppWrapperDetail>
+                        <AppName>{event.data[eventId].name}</AppName>
+                        <AppNameDetail>{event.data[eventId]._embedded.venue[0].name}</AppNameDetail>
+                            <p>
+                                <AppSpan className="info">Adress: </AppSpan>
+                                {event.data[eventId]._embedded.venue[0].address.line1} / {event.data[eventId]._embedded.venue[0].address.line2}
+                            </p>
+                            <AppZone>{event.data[eventId]._embedded.venue[0].timeZone.split('_').join(' ')}</AppZone>
+                            <br/><br/>
+                            <span>
+                                <AppSpan className="info">Date:</AppSpan> {event.data[eventId].dates.start.localDate}
+                            </span>
                     </AppWrapperDetail>
                 )}
 

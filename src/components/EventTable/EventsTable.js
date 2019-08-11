@@ -4,6 +4,19 @@ import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import styled from 'styled-components';
 
+// Actions
+import {
+    fetchEventListData,
+    fetchEventListPage,
+    fetchEventListLoading
+} from "../../actions/eventActions";
+
+// Constants
+import { createUrl } from "../../constants/baseConstants";
+
+// Services
+import { listEvent } from "../../services/eventServices";
+
 //Syles
 const AppWrapper = styled.table`
     position: relative;
@@ -11,7 +24,6 @@ const AppWrapper = styled.table`
     margin: 0 auto;
     text-align: center;
     font-family: 'Source Sans Pro', sans-serif;
-    
 `
 const AppRow = styled.tr`
     width:100%;
@@ -42,7 +54,7 @@ const AppDetail = styled.td`
     border-radius: 5px;
     transition: transform .4s;
     &:hover {
-        transform: scale(1.2); 
+        transform: scale(1.2);
     }
 `
 const AppDate = styled.td`
@@ -58,16 +70,24 @@ const AppLocation = styled.td`
 `
 const AppButton = styled.button`
     background: transparent;
-    background-color: #ede1e1;
+    background-color: ${props => props.active ? "#F5F5F5" : "#ede1e1"};
     border: none;
     padding: 15px 20px;
-    margin-top: 5%;
+    margin: 10px 5px 0;
     cursor: pointer;
     border-radius: 5px;
     transition: background-color .4s ease;
     &:hover {
         background-color: #F5F5F5;
     }
+`
+const PreviousAppButton = styled(AppButton)`
+    float: left;
+    margin: 10px 0 0;
+`
+const NextAppButton = styled(AppButton)`
+    float: right;
+    margin: 10px 0 0;
 `
 const AppLink = styled.span`
     & a{
@@ -86,57 +106,30 @@ const AppCity = styled.span`
     float: left;
     color: #7f6d6d;
 `
-
-// Actions
-import {
-    fetchEventListData,
-    fetchEventListPage,
-    fetchEventListLoading
-} from "../../actions/eventActions";
-
-// Constants
-import { createUrl } from '../../constants/baseConstants';
-
-// Services
-import { listEvent } from "../../services/eventServices";
+const Loader = styled.div`
+    text-align: center;
+`
+const Pagination = styled.div`
+    text-align: center;
+`
 
 
 class EventTable extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            hasNextPage: false
-        }
-
-        this.hasNextPage = this.hasNextPage.bind(this);
-        this.loadMore = this.loadMore.bind(this);
+        this.getPageData = this.getPageData.bind(this);
     }
 
     componentDidMount() {
-        var page = this.props.events.page.number >= 0 ? this.props.events.page.number + 1 : 0;
-        this.props.onfetchEventListLoading(true);
-        listEvent(page, (response) => {
-            if (response) {
-                if (response.statusCode === 200) {
-                    if (response.body._embedded && response.body._embedded.events) {
-                        this.props.onfetchEventListData(response.body._embedded.events);
-                    }
-                    if (response.body.page) {
-                        this.props.onfetchEventListPage(response.body.page);
-                    }
-                }
-            }
-            this.props.onfetchEventListLoading(false);
-            this.hasNextPage();
-        });
+        var pageNumber = this.props.events.page.number >= 0 ? this.props.events.page.number : 0;
+        this.getPageData(pageNumber);
     }
 
-    loadMore() {
-        if (this.state.hasNextPage) {
-            var page = this.props.events.page.number + 1
+    getPageData(pageNumber) {
+        if (this.hasPageExist(pageNumber)) {
             this.props.onfetchEventListLoading(true);
-            listEvent(page, (response) => {
+            listEvent(pageNumber, (response) => {
                 if (response) {
                     if (response.statusCode === 200) {
                         if (response.body._embedded && response.body._embedded.events) {
@@ -148,53 +141,80 @@ class EventTable extends Component {
                     }
                 }
                 this.props.onfetchEventListLoading(false);
-                this.hasNextPage();
             });
         }
     }
 
-    hasNextPage() {
-        if (
-            this.props.events.page.number >= 0 &&
-            this.props.events.page.totalPages >= 0 &&
-            this.props.events.page.number + 1 <= this.props.events.page.totalPages) {
-            this.setState({ hasNextPage: true });
+    hasPageExist(pageNumber) {
+        var totalPages = this.props.events.page.totalPages ? this.props.events.page.totalPages : 0;
+
+        if (pageNumber <= totalPages) {
+            return true;
         } else {
-            this.setState({ hasNextPage: false });
+            return false;
         }
     }
 
     render() {
-        const { hasNextPage } = this.state;
         const { events } = this.props;
 
         return (
             <div>
-                {events.data.length > 0 && (
+                {events.loading ? (
+                    <Loader>
+                        <p>Loading...</p>
+                    </Loader>
+                ) : events.data.length > 0 && (
                     <AppWrapper>
                         <tbody>
                             {
-                                events.data.map((value, index) =>{
-                            
+                                events.data.map((value, index) => {
                                     return (
                                         <AppRow key={index}>
-                                            <AppDate><AppText>Date:</AppText> { value.dates.start.localDate}</AppDate>
+                                            <AppDate>
+                                                <AppText>Date:</AppText> {value.dates.start.localDate}
+                                            </AppDate>
                                             <AppLocation>
-                                                <AppName>{ value.name }</AppName> <br/>
-                                                <AppCity><i>{ value.dates.timezone.split('_').join(' ') }</i></AppCity>
+                                                <AppName>{value.name}</AppName> <br/>
+                                                <AppCity><i>{value.dates.timezone.split('_').join(' ')}</i></AppCity>
                                             </AppLocation>
-                                            <AppDetail><AppLink><Link to={createUrl("event", value.id)}>Detail</Link></AppLink></AppDetail>
+                                            <AppDetail>
+                                                <AppLink>
+                                                    <Link to={createUrl("event", value.id)}>Detail</Link>
+                                                </AppLink>
+                                            </AppDetail>
                                         </AppRow>
-                                )
-                            })}
+                                    )
+                                })
+                            }
                         </tbody>
-                    </AppWrapper>
-                )}
 
-                {events.loading ? (
-                    <p>Loading...</p>
-                ) : hasNextPage && (
-                    <AppButton onClick={this.loadMore} type="button" className="load-more">Load more</AppButton>
+                        {events.page.pagination && (
+                            <Pagination>
+                                <PreviousAppButton
+                                    onClick={() => this.getPageData(events.page.number - 1)}
+                                    type="button"
+                                    disabled={!events.page.pagination.hasPreviousPage}>
+                                    Previous Page
+                                </PreviousAppButton>
+                                {events.page.pagination.numbers.map((value, index) =>
+                                    <AppButton
+                                        onClick={() => this.getPageData(value)}
+                                        type="button"
+                                        key={index}
+                                        active={events.page.number == value}>
+                                        {value + 1}
+                                    </AppButton>
+                                )}
+                                <NextAppButton
+                                    onClick={() => this.getPageData(events.page.number + 1)}
+                                    type="button"
+                                    disabled={!events.page.pagination.hasNextPage}>
+                                    Next Page
+                                </NextAppButton>
+                            </Pagination>
+                        )}
+                    </AppWrapper>
                 )}
             </div>
         );
@@ -213,4 +233,3 @@ const mapDispatchToProps = {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(EventTable);
-    

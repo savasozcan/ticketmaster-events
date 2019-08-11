@@ -25,7 +25,7 @@ export function eventListReducer(state=listState, action) {
         case FETCH_EVENT_LIST_DATA:
             return {
                 ...state,
-                data: state.data.concat(action.payload.data)
+                data: action.payload.data
             };
         case FETCH_EVENT_LIST_PAGE:
             return {

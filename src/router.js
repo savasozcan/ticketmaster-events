@@ -8,8 +8,8 @@ import {
 } from 'react-router-dom';
 
 // Pages
-import EventList from './pages/EventList/index';
-import EventRetrieve from './pages/EventRetrieve/index';
+import EventList from './pages/EventList/EventList';
+import EventRetrieve from './pages/EventRetrieve/EventRetrieve';
 
 
 const AppRouter = () => (

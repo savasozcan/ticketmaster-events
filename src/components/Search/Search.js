@@ -4,8 +4,9 @@ import styled from 'styled-components';
 
 //Styles
 const AppWrapper = styled.div`
-    width: 100%;
+    width: 85%;
     text-align: center;
+    margin: 0 auto;
     font-family: 'Source Sans Pro', sans-serif;
 `
 const AppInput = styled.input`
@@ -84,7 +85,9 @@ class Search extends Component {
                         type="text"
                         placeholder="Filter by name..."
                         name="search"/>
-                        <AppButtonWrapper class="btn-2 icon-up"><AppButton>Search</AppButton></AppButtonWrapper>
+                    <AppButtonWrapper>
+                        <AppButton>Search</AppButton>
+                    </AppButtonWrapper>
                 </form>
             </AppWrapper>
         )

@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 
 // Components
-import EventTable from '../../components/EventTable/EventsTable';
+import EventTable from '../../components/EventTable/EventTable';
 import Search from '../../components/Search/Search'
 
 class EventList extends Component {

@@ -7,6 +7,18 @@ import {
 import { connect } from "react-redux";
 import styled from 'styled-components';
 
+// Actions
+import {
+    fetchEventRetrieveData,
+    fetchEventRetrieveLoading
+} from "../../actions/eventActions";
+
+// Services
+import { retrieveEvent } from "../../services/eventServices";
+
+// Components
+import Loader from "../../components/Loader/Loader";
+
 //Styles
 const AppWrapperDetail = styled.div`
     position: relative;
@@ -87,19 +99,6 @@ const AppZone = styled.span`
   font-weight: 700;
   border-radius: 5px;
 `
-const Loader = styled.div`
-    text-align: center;
-`
-
-// Actions
-import {
-    fetchEventRetrieveData,
-    fetchEventRetrieveLoading
-} from "../../actions/eventActions";
-
-// Services
-import { retrieveEvent } from "../../services/eventServices";
-
 
 class EventRetrieve extends Component {
     constructor(props) {
@@ -152,9 +151,7 @@ class EventRetrieve extends Component {
         return (
             <div>
                 {event.loading && !event.data[eventId] ? (
-                    <Loader>
-                        <p>Loading...</p>
-                    </Loader>
+                    <Loader></Loader>
                 ) : event.data[eventId] && (
                     <AppWrapperDetail>
                         <AppName>{event.data[eventId].name}</AppName>

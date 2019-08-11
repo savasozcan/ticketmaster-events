@@ -17,6 +17,9 @@ import { createUrl } from "../../constants/baseConstants";
 // Services
 import { listEvent } from "../../services/eventServices";
 
+// Components
+import Loader from "../Loader/Loader"
+
 //Syles
 const AppWrapper = styled.table`
     position: relative;
@@ -187,9 +190,6 @@ const AppCity = styled.span`
     float: left;
     color: #7f6d6d;
 `
-const Loader = styled.div`
-    text-align: center;
-`
 const Pagination = styled.div`
     text-align: center;
 `
@@ -242,9 +242,7 @@ class EventTable extends Component {
         return (
             <div>
                 {events.loading ? (
-                    <Loader>
-                        <p>Loading...</p>
-                    </Loader>
+                    <Loader></Loader>
                 ) : events.data.length > 0 && (
                     <AppWrapper>
                         <tbody>

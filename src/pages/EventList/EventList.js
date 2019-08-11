@@ -3,6 +3,7 @@ import React, { Component } from "react";
 
 // Components
 import EventTable from '../../components/EventTable/EventsTable';
+import Search from '../../components/Search/Search'
 
 class EventList extends Component {
     constructor(props) {
@@ -14,6 +15,8 @@ class EventList extends Component {
     render() {
         return (
             <div>
+                <Search />
+                <br />
                 <EventTable />
             </div>
         );

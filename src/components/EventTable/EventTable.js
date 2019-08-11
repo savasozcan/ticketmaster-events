@@ -193,6 +193,9 @@ const AppCity = styled.span`
 const Pagination = styled.div`
     text-align: center;
 `
+const NotFound = styled.div`
+    text-align: center;
+`
 
 
 class EventTable extends Component {
@@ -209,8 +212,10 @@ class EventTable extends Component {
 
     getPageData(pageNumber) {
         if (this.hasPageExist(pageNumber)) {
+            var keyword = this.props.events.keyword;
             this.props.onfetchEventListLoading(true);
-            listEvent(pageNumber, (response) => {
+            this.props.onfetchEventListData([]);
+            listEvent(pageNumber, keyword, (response) => {
                 if (response) {
                     if (response.statusCode === 200) {
                         if (response.body._embedded && response.body._embedded.events) {
@@ -243,23 +248,27 @@ class EventTable extends Component {
             <div>
                 {events.loading ? (
                     <Loader></Loader>
-                ) : events.data.length > 0 && (
+                ) : events.data.length > 0 ? (
                     <AppWrapper>
                         <tbody>
                             {
-                                events.data.map((value, index) => {
+                                events.data.map((event, index) => {
                                     return (
                                         <AppRow key={index}>
                                             <AppDate>
-                                                <AppText>Date:</AppText> {value.dates.start.localDate}
+                                                <AppText>Date:</AppText> {event.dates.start.localDate}
                                             </AppDate>
                                             <AppLocation>
-                                                <AppName>{value.name}</AppName> <br/>
-                                                <AppCity><i>{value.dates.timezone.split('_').join(' ')}</i></AppCity>
+                                                <AppName>{event.name}</AppName> <br/>
+                                                {event._embedded.venues.length > 0 && (
+                                                    <AppCity>
+                                                        <i>{event._embedded.venues[0].city.name} / {event._embedded.venues[0].country.name}</i>
+                                                    </AppCity>
+                                                )}
                                             </AppLocation>
                                             <AppDetail>
                                                 <AppLink>
-                                                    <Link to={createUrl("event", value.id)}>Detail</Link>
+                                                    <Link to={createUrl("event", event.id)}>Detail</Link>
                                                 </AppLink>
                                             </AppDetail>
                                         </AppRow>
@@ -294,6 +303,10 @@ class EventTable extends Component {
                             </Pagination>
                         )}
                     </AppWrapper>
+                ) : (
+                    <NotFound>
+                        <h2>Event not found.</h2>
+                    </NotFound>
                 )}
             </div>
         );

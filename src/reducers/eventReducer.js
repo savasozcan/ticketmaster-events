@@ -1,6 +1,7 @@
 // Constants
 import {
     FETCH_EVENT_LIST_DATA,
+    FETCH_EVENT_LIST_KEYWORD,
     FETCH_EVENT_LIST_PAGE,
     FETCH_EVENT_LIST_LOADING,
     FETCH_EVENT_RETRIEVE_DATA,
@@ -10,6 +11,7 @@ import {
 
 export var listState = {
     data: [],
+    keyword: "",
     page: {},
     loading: false,
 }
@@ -27,6 +29,11 @@ export function eventListReducer(state=listState, action) {
                 ...state,
                 data: action.payload.data
             };
+        case FETCH_EVENT_LIST_KEYWORD:
+            return {
+                ...state,
+                keyword: action.payload.keyword
+            }
         case FETCH_EVENT_LIST_PAGE:
             return {
                 ...state,

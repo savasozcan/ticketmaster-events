@@ -1,6 +1,21 @@
+// Packages
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
+
+// Actions
+import {
+    fetchEventListData,
+    fetchEventListKeyword,
+    fetchEventListPage,
+    fetchEventListLoading
+} from "../../actions/eventActions";
+
+// Constants
+import { createUrl } from "../../constants/baseConstants";
+
+// Services
+import { listEvent } from "../../services/eventServices";
 
 //Styles
 const AppWrapper = styled.div`
@@ -77,15 +92,57 @@ const AppButton = styled.span`
 `
 
 class Search extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            keyword: props.events.keyword || ""
+        };
+
+        this.onChange = this.onChange.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
+    }
+
+    onChange(e) {
+        const state = this.state
+        state[e.target.name] = e.target.value;
+        this.setState(state);
+    }
+
+    onSubmit(e) {
+        e.preventDefault();
+        this.props.onfetchEventListLoading(true);
+        this.props.onfetchEventListData([]);
+        listEvent(0, this.state.keyword, (response) => {
+            if (response) {
+                if (response.statusCode === 200) {
+                    if (response.body._embedded && response.body._embedded.events) {
+                        this.props.onfetchEventListData(response.body._embedded.events);
+                    }
+                    if (response.body.page) {
+                        this.props.onfetchEventListPage(response.body.page);
+                    }
+                }
+            }
+            this.props.onfetchEventListLoading(false);
+        });
+        this.props.onfetchEventListKeyword(this.state.keyword);
+    }
+
     render() {
+        const { keyword } = this.state;
+
         return (
             <AppWrapper>
-                <form>
+                <form onSubmit={this.onSubmit}>
                     <AppInput
                         type="text"
                         placeholder="Filter by name..."
-                        name="search"/>
-                    <AppButtonWrapper>
+                        name="keyword"
+                        value={keyword}
+                        onChange={this.onChange} />
+                    <AppButtonWrapper className="btn-2 icon-up">
                         <AppButton>Search</AppButton>
                     </AppButtonWrapper>
                 </form>
@@ -94,4 +151,16 @@ class Search extends Component {
     }
 }
 
-export default Search;
+
+const mapStateToProps = state => {
+    return state;
+};
+
+const mapDispatchToProps = {
+    onfetchEventListData: fetchEventListData,
+    onfetchEventListKeyword:fetchEventListKeyword,
+    onfetchEventListPage: fetchEventListPage,
+    onfetchEventListLoading: fetchEventListLoading
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Search);

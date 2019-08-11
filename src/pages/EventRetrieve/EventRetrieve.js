@@ -19,9 +19,18 @@ const AppWrapperDetail = styled.div`
         color : #fff;
         font-family: 'Source Sans Pro', sans-serif;
     }
+    p, span {
+        @media screen and (min-width: 360px) and (max-width: 480px) {
+            font-size: 14px;
+        }
+    }
 `
 const AppName = styled.h1`
     color: #fff;
+
+    @media screen and (min-width: 360px) and (max-width: 480px) {
+        font-size: 18px;
+    }
 `
 const AppNameDetail = styled.h3`
     display: inline-block;
@@ -29,13 +38,21 @@ const AppNameDetail = styled.h3`
     color: #fff;
     background: #0b80aa;
     padding: 5px 10px;
-    border-radius: 5px;    
+    border-radius: 5px;
+    
+    @media screen and (min-width: 360px) and (max-width: 480px) {
+        font-size: 14px;
+    }
 `
 const AppSpan = styled.span.attrs(props => ({
     className: "info",
   }))`
     font-size: 22px;
     font-weight: 700;
+
+    @media screen and (min-width: 360px) and (max-width: 480px) {
+        font-size: 14px;
+    }
 `
 const AppHome = styled.span`
     position: absolute;
@@ -53,7 +70,15 @@ const AppHome = styled.span`
       text-decoration: none;
       color: #fff;
       font-weight: 700;
+
+    @media screen and (min-width: 360px) and (max-width: 480px) {
+        font-size: 12px;
+    }
   }
+
+    @media screen and (min-width: 360px) and (max-width: 480px) {
+        padding: 10px 5px;
+    }
 `
 const AppZone = styled.span`
   background: #1db51d;

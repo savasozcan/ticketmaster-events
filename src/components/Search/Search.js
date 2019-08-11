@@ -20,6 +20,12 @@ const AppInput = styled.input`
     left: calc(50% - 200px);
     transition-duration: .6s;
     font-size: 16px;
+
+    @media screen and (min-width: 360px) and (max-width: 480px) {
+        width: 95%;
+        height: 35px;
+        margin-top: 5%;
+    }
 `
 const AppButtonWrapper = styled.button`
     position: relative;
@@ -55,6 +61,13 @@ const AppButtonWrapper = styled.button`
     }
     &:hover:before {
         top: 30%;
+    }
+
+    @media screen and (min-width: 360px) and (max-width: 480px) {
+        width: 80px;
+        font-size: 12px;
+        padding: 10px;
+        margin 5% 0;
     }
 `
 const AppButton = styled.span`

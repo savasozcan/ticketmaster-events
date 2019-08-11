@@ -24,6 +24,10 @@ const AppWrapper = styled.table`
     margin: 0 auto;
     text-align: center;
     font-family: 'Source Sans Pro', sans-serif;
+
+    @media screen and (min-width: 360px) and (max-width: 480px) {
+        margin-left: 2%;
+    }
 `
 const AppRow = styled.tr`
     width:100%;
@@ -43,6 +47,10 @@ const AppRow = styled.tr`
             background: #ede1e1
         }
     }
+
+    @media screen and (min-width: 360px) and (max-width: 480px) {
+        padding: 20px;
+    }
 `
 const AppDetail = styled.td`
     position: absolute;
@@ -56,17 +64,43 @@ const AppDetail = styled.td`
     &:hover {
         transform: scale(1.2);
     }
+
+    @media screen and (min-width: 360px) and (max-width: 600px) {
+      right: 0;
+      padding: 5px 10px;
+      margin-top: -12px;
+      margin-right: -36px;
+    }
+
+    @media screen and (min-width: 481px) and (max-width: 600px) {
+        right: 45px;
+        margin-top: -5px;
+    }
 `
 const AppDate = styled.td`
     padding-left: 10px;
     color: #7f6d6d;
+    
+    @media screen and (min-width: 360px) and (max-width: 480px) {
+        font-size: 10px;
+        padding-left: 0;
+    }
 `
 const AppText = styled.span`
     font-size: 18px;
     font-weight: 700;
+
+    @media screen and (min-width: 360px) and (max-width: 480px) {
+        font-size: 12px;
+    }
+
 `
 const AppLocation = styled.td`
     padding-left: 100px;
+
+    @media screen and (min-width: 360px) and (max-width: 600px) {
+        padding-left: 20px;
+    }
 `
 const AppButton = styled.button`
     background: transparent;
@@ -80,26 +114,73 @@ const AppButton = styled.button`
     &:hover {
         background-color: #F5F5F5;
     }
+    
+    @media screen and (min-width: 360px) and (max-width: 480px) {
+        font-size: 8px;
+        width: 15px;
+        padding: 6px;
+        margin: 10px 2px 0;
+    }
+
+    @media screen and (min-width: 481px) and (max-width: 600px) {
+        width: 20px;
+        padding: 16px;
+    }
 `
 const PreviousAppButton = styled(AppButton)`
     float: left;
     margin: 10px 0 0;
+
+    @media screen and (min-width: 360px) and (max-width: 480px) {
+        font-size: 8px;
+        width: 50px;
+        padding: 8px 12px;
+        margin-right: 0;
+        margin-left: 9%;
+    }
+
+    @media screen and (min-width: 481px) and (max-width: 600px) {
+        width: 75px;
+        padding: 8px 12px;
+    }
+    
 `
 const NextAppButton = styled(AppButton)`
     float: right;
     margin: 10px 0 0;
+
+    @media screen and (min-width: 360px) and (max-width: 480px) {
+        font-size: 8px;
+        width: 50px;
+        padding: 8px 12px;
+        margin-left: 0;
+    }
+
+    @media screen and (min-width: 481px) and (max-width: 600px) {
+        width: 75px;
+        padding: 8px 12px;
+    }
 `
 const AppLink = styled.span`
     & a{
         text-decoration: none;
         color: #fff;
         font-size: 18px;
+
+        @media screen and (min-width: 360px) and (max-width: 480px) {
+            font-size: 12px;
+        }
     }
 `
 const AppName = styled.span`
     font-size: 20px;
     font-weight: 700;
     color: #8e6666;
+
+    @media screen and (min-width: 360px) and (max-width: 480px) {
+        font-size: 12px;
+        text-align: left;
+    }
 `
 const AppCity = styled.span`
     font-size: 12px;

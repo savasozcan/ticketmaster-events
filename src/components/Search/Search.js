@@ -21,44 +21,45 @@ const AppInput = styled.input`
     transition-duration: .6s;
     font-size: 16px;
 `
-const AppButtonWrapper = styled.p`
-    width: 170px;
-    display: inline-block;
-    perspective: 800px;
-`
-const AppButton = styled.a`
-    display: block;
-    margin-left: 15px;
+const AppButtonWrapper = styled.button`
+    position: relative;
+    color: #fff;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    width: 150px;
+    text-transform: uppercase;
+    padding: 15px 40px;
+    margin: 15px 30px;
     border-radius: 5px;
     background: #4c3737;
-    text-align: center;
-    font-weight: 700;
-    font-size: 16px;
-    padding: 17px 0;
-    color: white;
-    text-decoration: none;
-    position: relative;
-    text-transform: uppercase;
-    transform-style: preserve-3d;
-    transform-origin: 0% 0%;
-    transition: all .3s;
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
     &:before {
-        content: attr(data-hover);
         position: absolute;
-        box-sizing: border-box;
-        top: 100%;
-        border-bottom-right-radius: 5px;
-        border-bottom-left-radius: 5px;
-        padding: 5% 0;
-        width: 100%;
-        background: #2F4351;
-        display: block;
-        transform-origin: 0% 0%;
-        transform: rotateX(-90deg);
+        content: "↑";
+        left: 48%;
+        top: -100%;
+        font-weight: 700;
+        font-size: 20px;
+        transition: all .4s;
     }
-    &:hover {
-        transform: rotateX(58deg);
+    &:active {
+        background: #9053a9;
+        color: #823aa0;
+        top: 2px;
     }
+    &:hover span {
+        transform: translateY(300%);
+    }
+    &:hover:before {
+        top: 30%;
+    }
+`
+const AppButton = styled.span`
+    display: inline-block;
+    transition: all 0.5s;
 `
 
 class Search extends Component {
@@ -70,11 +71,7 @@ class Search extends Component {
                         type="text"
                         placeholder="Filter by name..."
                         name="search"/>
-                        <AppButtonWrapper>
-                            <AppButton href="#" data-hover="Find an Event">
-                                Search
-                            </AppButton>
-                        </AppButtonWrapper>
+                        <AppButtonWrapper class="btn-2 icon-up"><AppButton>Search</AppButton></AppButtonWrapper>
                 </form>
             </AppWrapper>
         )

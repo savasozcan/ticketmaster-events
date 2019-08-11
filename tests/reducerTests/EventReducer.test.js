@@ -3,8 +3,7 @@ import {
     eventRetrieveReducer,
     listState,
     retrieveState    
-} from '../src/reducers/eventReducer';
-import * as actionTypes from '../src/constants/actionConstants';
+} from '../../src/reducers/eventReducer';
 
 describe('event reducer', () => {
     it('should return the initial state', () => {
@@ -14,19 +13,6 @@ describe('event reducer', () => {
             loading: false,
         });
     });
-    // it('should store the token upon login', () => {
-    //     expect(eventListReducer({
-    //         data: [],
-    //         page: {},
-    //         loading: false,
-    //     }, 
-    //     {
-    //         type: actionTypes.FETCH_EVENT_LIST_LOADING, 
-    //         loading: true
-    //     })).toEqual({
-    //         loading: true,
-    //     })
-    // });
     it('should store the retrieve', () => {
         expect(eventRetrieveReducer(retrieveState, {})).toEqual({
             data: {},

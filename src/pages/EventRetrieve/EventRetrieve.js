@@ -47,6 +47,14 @@ const AppName = styled.h1`
         font-size: 18px;
         margin-top: 15%;
     }
+
+    @media screen and (min-width: 481px) and (max-width: 600px) {
+        margin-top: 18%;
+    }
+
+    @media screen and (min-width: 601px) and (max-width: 800px) {
+        margin-top: 15%;
+    }
 `
 const AppNameDetail = styled.h3`
     display: inline-block;
@@ -103,6 +111,24 @@ const AppZone = styled.span`
   font-size: 12px;
   font-weight: 700;
   border-radius: 5px;
+`
+const AppThumb = styled.img`
+    position: absolute;
+    width: 250px;
+    right: 10px;
+    bottom: 10px;
+
+    @media screen and (min-width: 360px) and (max-width: 480px) {
+        width: 50px;
+    }
+
+    @media screen and (min-width: 481px) and (max-width: 600px) {
+        width: 150px;
+    }
+
+    @media screen and (min-width: 601px) and (max-width: 800px) {
+        width: 200px;
+    }
 `
 
 class EventRetrieve extends Component {
@@ -174,6 +200,7 @@ class EventRetrieve extends Component {
                             <span>
                                 <AppSpan className="info">Date:</AppSpan> {event.data[eventId].dates.start.localDate}
                             </span>
+                            <AppThumb src={ event.data[eventId].images[0].url }></AppThumb>
                     </AppWrapperDetail>
                 )}
 

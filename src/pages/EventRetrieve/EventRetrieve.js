@@ -3,9 +3,12 @@ import React, { Component } from "react";
 import {
     Link,
     Redirect
-} from 'react-router-dom';
+} from "react-router-dom";
 import { connect } from "react-redux";
-import styled from 'styled-components';
+import styled from "styled-components";
+
+// Constants
+import { alertify } from "../../constants/baseConstants";
 
 // Actions
 import {

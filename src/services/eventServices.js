@@ -1,6 +1,6 @@
 // Constants
-import { request} from '../constants/baseConstants';
-import ApiUrl, { API_KEY } from '../constants/apiConstants';
+import { request } from "../constants/baseConstants";
+import ApiUrl, { API_KEY } from "../constants/apiConstants";
 
 
 export function listEvent(page, keyword, onComplete) {

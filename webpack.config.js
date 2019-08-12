@@ -9,7 +9,10 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
         chunkFilename: '[id].js',
-        publicPath: ''
+        publicPath: '/'
+    },
+    devServer: {
+        historyApiFallback: true
     },
     resolve: {
         extensions: ['.js', '.jsx']
@@ -26,7 +29,7 @@ module.exports = {
                 exclude: /node_modules/,
                 use: [
                     { loader: 'style-loader' },
-                    { 
+                    {
                         loader: 'css-loader',
                         options: {
                             importLoaders: 1,
@@ -34,7 +37,7 @@ module.exports = {
                             localIdentName: '[name]__[local]__[hash:base64:5]'
                         }
                      },
-                     { 
+                     {
                          loader: 'postcss-loader',
                          options: {
                              ident: 'postcss',

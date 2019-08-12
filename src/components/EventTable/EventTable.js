@@ -58,7 +58,7 @@ const AppRow = styled.tr`
 const AppDetail = styled.td`
     position: absolute;
     right: 30px;
-    margin-top: -80px;
+    margin-top: -86px;
     background: #7f6d6d;
     padding: 15px 20px;
     text-decoration: none;
@@ -100,6 +100,7 @@ const AppText = styled.span`
 `
 const AppLocation = styled.td`
     padding-left: 100px;
+    text-align: left;
 
     @media screen and (min-width: 360px) and (max-width: 600px) {
         padding-left: 20px;
@@ -195,6 +196,7 @@ const Pagination = styled.div`
 `
 const NotFound = styled.div`
     text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
 `
 const AppThumb = styled.img`
     width: 150px;
@@ -259,9 +261,15 @@ class EventTable extends Component {
                                     return (
                                         <AppRow key={index}>
                                             <AppDate>
-                                                <AppThumb src={ event.images[2].url }/>
+                                                {event.images.length > 0 && (
+                                                    <AppThumb src={ event.images[0].url }></AppThumb>
+                                                )}
                                                 <br />
-                                                <AppText>Date:</AppText> {event.dates.start.localDate}
+                                                {event.dates && event.dates.start && (
+                                                    <div>
+                                                        <AppText>Date:</AppText> {event.dates.start.localDate}
+                                                    </div>
+                                                )}
                                             </AppDate>
                                             <AppLocation>
                                                 <AppName>{event.name}</AppName> <br/>

@@ -35,12 +35,17 @@ const AppInput = styled.input`
     top: calc(50% - 20px);
     left: calc(50% - 200px);
     transition-duration: .6s;
+    font-family: 'Source Sans Pro', sans-serif;
     font-size: 16px;
 
     @media screen and (min-width: 360px) and (max-width: 480px) {
         width: 95%;
         height: 35px;
         margin-top: 5%;
+    }
+
+    @media screen and (min-width: 601px) and (max-width: 800px) {
+        margin-top: 4%;
     }
 `
 const AppButtonWrapper = styled.button`
@@ -84,6 +89,12 @@ const AppButtonWrapper = styled.button`
         font-size: 12px;
         padding: 10px;
         margin 5% 0;
+    }
+
+    @media screen and (min-width: 601px) and (max-width: 800px) {
+        width: 95px;
+        font-size: 16px;
+        padding: 10px 22px;
     }
 `
 const AppButton = styled.span`

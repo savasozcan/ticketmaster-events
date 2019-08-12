@@ -70,14 +70,20 @@ const AppDetail = styled.td`
 
     @media screen and (min-width: 360px) and (max-width: 600px) {
       right: 0;
-      padding: 5px 10px;
-      margin-top: -12px;
+      padding: 3px 6px;
+      margin-top: -8px;
       margin-right: -36px;
     }
 
     @media screen and (min-width: 481px) and (max-width: 600px) {
         right: 45px;
         margin-top: -5px;
+    }
+
+    @media screen and (min-width: 601px) and (max-width: 800px) {
+        right: 12px;
+        margin-top: -22px;
+        padding: 10px 15px;
     }
 `
 const AppDate = styled.td`
@@ -97,6 +103,10 @@ const AppText = styled.span`
         font-size: 12px;
     }
 
+    @media screen and (min-width: 601px) and (max-width: 800px) {
+        font-size: 16px;
+    }
+
 `
 const AppLocation = styled.td`
     padding-left: 100px;
@@ -104,6 +114,10 @@ const AppLocation = styled.td`
 
     @media screen and (min-width: 360px) and (max-width: 600px) {
         padding-left: 20px;
+    }
+
+    @media screen and (min-width: 601px) and (max-width: 800px) {
+        padding-left: 32px;
     }
 `
 const AppButton = styled.button`
@@ -174,6 +188,9 @@ const AppLink = styled.span`
         @media screen and (min-width: 360px) and (max-width: 480px) {
             font-size: 12px;
         }
+        @media screen and (min-width: 601px) and (max-width: 800px) {
+            font-size: 164x;
+        }
     }
 `
 const AppName = styled.span`
@@ -199,7 +216,15 @@ const NotFound = styled.div`
     font-family: 'Source Sans Pro', sans-serif;
 `
 const AppThumb = styled.img`
-    width: 150px;
+    width: 200px;
+
+    @media screen and (min-width: 360px) and (max-width: 480px) {
+        width: 100px;
+    }
+
+    @media screen and (min-width: 601px) and (max-width: 800px) {
+        width: 150px;
+    }
 `
 
 

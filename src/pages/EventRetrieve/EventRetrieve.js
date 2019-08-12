@@ -45,6 +45,7 @@ const AppName = styled.h1`
 
     @media screen and (min-width: 360px) and (max-width: 480px) {
         font-size: 18px;
+        margin-top: 15%;
     }
 `
 const AppNameDetail = styled.h3`
@@ -84,6 +85,7 @@ const AppHome = styled.span`
   & a {
       text-decoration: none;
       color: #fff;
+      font-family: 'Source Sans Pro', sans-serif;
       font-weight: 700;
 
     @media screen and (min-width: 360px) and (max-width: 480px) {

@@ -3,7 +3,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 
-import EventTable from '../../src/components/EventTable/EventsTable';
+import EventTable from '../../src/components/EventTable/EventTable';
 
 describe('EventTable Component', () => {
 

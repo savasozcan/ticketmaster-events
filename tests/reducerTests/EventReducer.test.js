@@ -9,6 +9,7 @@ describe('event reducer', () => {
     it('should return the initial state', () => {
         expect(eventListReducer(listState, {})).toEqual({
             data: [],
+            keyword: "",
             page: {},
             loading: false,
         });

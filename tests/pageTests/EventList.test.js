@@ -3,7 +3,7 @@ import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import EventList from '../../src/pages/EventList/index'
+import EventList from '../../src/pages/EventList/EventList'
 
 configure({ adapter: new Adapter() });
 

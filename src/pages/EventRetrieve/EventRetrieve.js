@@ -152,14 +152,14 @@ class EventRetrieve extends Component {
                     data[this.state.eventId] = response.body;
                     this.props.onfetchEventRetrieveData(data);
                 } else if (response.statusCode === 404) {
-                    console.log("Not found.");
+                    alertify.error("Event not found.");
                     this.setRedirect(true);
                 } else {
-                    console.log("An unexpected error has occurred and try again later.");
+                    alertify.error("An unexpected error has occurred and try again later.");
                 }
             } else {
                 this.setRedirect(true);
-                console.log("An unexpected error has occurred and try again later.");
+                alertify.error("Event not found.");
             }
             this.props.onfetchEventRetrieveLoading(false);
         });

@@ -17,11 +17,14 @@
 
 <img src="./images/pagination.png">
 
+
+**Detail Page**
+
+<img src="./images/detail.png">
+
 ---
 
 ## Table of Contents
-
-> If you're `README` has a lot of info, section headers might be nice.
 
 - [Installation](#installation)
 - [How To Run](#how-to-run)

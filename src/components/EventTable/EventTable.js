@@ -141,8 +141,13 @@ const AppButton = styled.button`
     }
 
     @media screen and (min-width: 481px) and (max-width: 600px) {
-        width: 20px;
-        padding: 16px;
+        width: 25px;
+        padding: 5px 10px;
+    }
+
+    @media screen and (min-width: 601px) and (max-width: 800px) {
+        padding: 5px 10px;
+        margin: 10px 2px 0;
     }
 `
 const PreviousAppButton = styled(AppButton)`
@@ -158,8 +163,9 @@ const PreviousAppButton = styled(AppButton)`
     }
 
     @media screen and (min-width: 481px) and (max-width: 600px) {
-        width: 75px;
-        padding: 8px 12px;
+        width: 65px;
+        padding: 5px 10px;
+        font-size: 12px
     }
 
 `
@@ -175,8 +181,9 @@ const NextAppButton = styled(AppButton)`
     }
 
     @media screen and (min-width: 481px) and (max-width: 600px) {
-        width: 75px;
-        padding: 8px 12px;
+        width: 65px;
+        padding: 5px 10px;
+        font-size: 12px
     }
 `
 const AppLink = styled.span`

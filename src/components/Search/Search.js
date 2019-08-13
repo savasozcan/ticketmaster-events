@@ -17,7 +17,7 @@ import { createUrl } from "../../constants/baseConstants";
 // Services
 import { listEvent } from "../../services/eventServices";
 
-//Styles
+// Styles
 const AppWrapper = styled.div`
     width: 85%;
     text-align: center;
@@ -152,7 +152,8 @@ class Search extends Component {
                         placeholder="Filter by name..."
                         name="keyword"
                         value={keyword}
-                        onChange={this.onChange} />
+                        onChange={this.onChange}>
+                    </AppInput>
                     <AppButtonWrapper className="btn-2 icon-up">
                         <AppButton>Search</AppButton>
                     </AppButtonWrapper>

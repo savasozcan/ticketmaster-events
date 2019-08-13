@@ -20,7 +20,7 @@ import { listEvent } from "../../services/eventServices";
 // Components
 import Loader from "../Loader/Loader"
 
-//Syles
+// Syles
 const AppWrapper = styled.table`
     position: relative;
     width: 85%;
@@ -69,10 +69,10 @@ const AppDetail = styled.td`
     }
 
     @media screen and (min-width: 360px) and (max-width: 600px) {
-      right: 0;
-      padding: 3px 6px;
-      margin-top: -8px;
-      margin-right: -36px;
+        right: 0;
+        padding: 3px 6px;
+        margin-top: -8px;
+        margin-right: -36px;
     }
 
     @media screen and (min-width: 481px) and (max-width: 600px) {
@@ -288,38 +288,37 @@ class EventTable extends Component {
                 ) : events.data.length > 0 ? (
                     <AppWrapper>
                         <tbody>
-                            {
-                                events.data.map((event, index) => {
-                                    return (
-                                        <AppRow key={index}>
-                                            <AppDate>
-                                                {event.images.length > 0 && (
-                                                    <AppThumb src={ event.images[0].url }></AppThumb>
-                                                )}
-                                                <br />
-                                                {event.dates && event.dates.start && (
-                                                    <div>
-                                                        <AppText>Date:</AppText> {event.dates.start.localDate}
-                                                    </div>
-                                                )}
-                                            </AppDate>
-                                            <AppLocation>
-                                                <AppName>{event.name}</AppName> <br/>
-                                                {event._embedded.venues.length > 0 && (
-                                                    <AppCity>
-                                                        <i>{event._embedded.venues[0].city.name} / {event._embedded.venues[0].country.name}</i>
-                                                    </AppCity>
-                                                )}
-                                            </AppLocation>
-                                            <AppDetail>
-                                                <AppLink>
-                                                    <Link to={createUrl("event", event.id)}>Detail</Link>
-                                                </AppLink>
-                                            </AppDetail>
-                                        </AppRow>
-                                    )
-                                })
-                            }
+                            {events.data.map((event, index) => {
+                                return (
+                                    <AppRow key={index}>
+                                        <AppDate>
+                                            {event.images.length > 0 && (
+                                                <AppThumb src={ event.images[0].url }></AppThumb>
+                                            )}
+                                            <br />
+                                            {event.dates && event.dates.start && (
+                                                <div>
+                                                    <AppText>Date:</AppText> {event.dates.start.localDate}
+                                                </div>
+                                            )}
+                                        </AppDate>
+                                        <AppLocation>
+                                            <AppName>{event.name}</AppName>
+                                            <br/>
+                                            {event._embedded.venues.length > 0 && (
+                                                <AppCity>
+                                                    <i>{event._embedded.venues[0].city.name} / {event._embedded.venues[0].country.name}</i>
+                                                </AppCity>
+                                            )}
+                                        </AppLocation>
+                                        <AppDetail>
+                                            <AppLink>
+                                                <Link to={createUrl("event", event.id)}>Detail</Link>
+                                            </AppLink>
+                                        </AppDetail>
+                                    </AppRow>
+                                )
+                            })}
                         </tbody>
 
                         {events.page.pagination && (

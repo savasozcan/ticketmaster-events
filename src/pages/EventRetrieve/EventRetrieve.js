@@ -90,16 +90,16 @@ const AppHome = styled.span`
     &:hover {
         transform: scale(1.1);
     }
-  & a {
-      text-decoration: none;
-      color: #fff;
-      font-family: 'Source Sans Pro', sans-serif;
-      font-weight: 700;
+    & a {
+        text-decoration: none;
+        color: #fff;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-weight: 700;
 
-    @media screen and (min-width: 360px) and (max-width: 480px) {
-        font-size: 12px;
+        @media screen and (min-width: 360px) and (max-width: 480px) {
+            font-size: 12px;
+        }
     }
-  }
 
     @media screen and (min-width: 360px) and (max-width: 480px) {
         padding: 10px 5px;

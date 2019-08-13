@@ -8,9 +8,9 @@ import EventTable from '../../src/components/EventTable/EventTable';
 describe('EventTable Component', () => {
 
     it('matches the snapshot', () => {
-        const tree = renderer.create(
-          <EventTable />
-        ).toJSON();
+        const tree = renderer
+        .create(<EventTable />)
+        .toJSON();
         expect(tree).toMatchSnapshot();
     });
 })

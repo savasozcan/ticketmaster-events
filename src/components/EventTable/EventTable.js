@@ -89,7 +89,7 @@ const AppDetail = styled.td`
 const AppDate = styled.td`
     padding-left: 10px;
     color: #7f6d6d;
-    
+
     @media screen and (min-width: 360px) and (max-width: 480px) {
         font-size: 10px;
         padding-left: 0;
@@ -132,7 +132,7 @@ const AppButton = styled.button`
     &:hover {
         background-color: #F5F5F5;
     }
-    
+
     @media screen and (min-width: 360px) and (max-width: 480px) {
         font-size: 8px;
         width: 15px;
@@ -161,7 +161,7 @@ const PreviousAppButton = styled(AppButton)`
         width: 75px;
         padding: 8px 12px;
     }
-    
+
 `
 const NextAppButton = styled(AppButton)`
     float: right;

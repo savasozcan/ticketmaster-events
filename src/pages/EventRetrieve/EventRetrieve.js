@@ -22,7 +22,7 @@ import { retrieveEvent } from "../../services/eventServices";
 // Components
 import Loader from "../../components/Loader/Loader";
 
-//Styles
+// Styles
 const AppWrapperDetail = styled.div`
     position: relative;
     background: linear-gradient(245deg,#0b80aa,#025e83);
@@ -63,7 +63,7 @@ const AppNameDetail = styled.h3`
     background: #0b80aa;
     padding: 5px 10px;
     border-radius: 5px;
-    
+
     @media screen and (min-width: 360px) and (max-width: 480px) {
         font-size: 14px;
     }
@@ -186,21 +186,27 @@ class EventRetrieve extends Component {
                 ) : event.data[eventId] && (
                     <AppWrapperDetail>
                         <AppName>{event.data[eventId].name}</AppName>
-                        <AppNameDetail>{event.data[eventId].promoter.description}</AppNameDetail>
+                        {event.data[eventId].promoter && event.data[eventId].promoter.description && (
+                            <AppNameDetail>{event.data[eventId].promoter.description}</AppNameDetail>
+                        )}
+                        {event.data[eventId]._embedded && event.data[eventId]._embedded.venues.length > 0 && (
                             <p>
                                 <AppSpan className="info">Adress: </AppSpan>
-                                {event.data[eventId]._embedded && event.data[eventId]._embedded.venues.length > 0 && (
-                                    <AppSpan>{event.data[eventId]._embedded.venues[0].address.line1} / {event.data[eventId]._embedded.venues[0].address.line2}</AppSpan>
-                                )}
+                                <AppSpan>{event.data[eventId]._embedded.venues[0].address.line1} / {event.data[eventId]._embedded.venues[0].address.line2}</AppSpan>
                             </p>
-                            {event.data[eventId]._embedded && event.data[eventId]._embedded.venues.length > 0 && (
-                                <AppZone>{event.data[eventId]._embedded.venues[0].city.name} / {event.data[eventId]._embedded.venues[0].country.name}</AppZone>
-                            )}
-                            <br/><br/>
+                        )}
+                        {event.data[eventId]._embedded && event.data[eventId]._embedded.venues.length > 0 && (
+                            <AppZone>{event.data[eventId]._embedded.venues[0].city.name} / {event.data[eventId]._embedded.venues[0].country.name}</AppZone>
+                        )}
+                        <br/><br/>
+                        {event.data[eventId].dates && event.data[eventId].dates.start && (
                             <span>
                                 <AppSpan className="info">Date:</AppSpan> {event.data[eventId].dates.start.localDate}
                             </span>
+                        )}
+                        {event.data[eventId].images.length > 0 && (
                             <AppThumb src={ event.data[eventId].images[0].url }></AppThumb>
+                        )}
                     </AppWrapperDetail>
                 )}
 

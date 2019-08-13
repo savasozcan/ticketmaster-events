@@ -58,7 +58,7 @@ const AppRow = styled.tr`
 const AppDetail = styled.td`
     position: absolute;
     right: 30px;
-    margin-top: -86px;
+    margin-top: -110px;
     background: #7f6d6d;
     padding: 15px 20px;
     text-decoration: none;

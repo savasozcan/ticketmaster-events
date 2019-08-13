@@ -17,11 +17,6 @@
 
 <img src="./images/pagination.png">
 
-
-**Detail Page**
-
-<img src="./images/detail.png">
-
 ---
 
 ## Table of Contents

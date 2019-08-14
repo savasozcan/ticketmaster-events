@@ -41,7 +41,7 @@ class EventTable extends Component {
             this.props.onfetchEventListLoading(true);
             this.props.onfetchEventListData([]);
             listEvent(pageNumber, keyword, (response) => {
-                if (response) {
+                if (response) {
                     if (response.statusCode === 200) {
                         if (response.body._embedded && response.body._embedded.events) {
                             this.props.onfetchEventListData(response.body._embedded.events);

@@ -16,13 +16,13 @@ class Footer extends React.Component {
                         </Style.AppLink>
                     </Style.AppName>
                 </Style.AppInfoWrapper>
-                <Style.AppInfoWrapper>
+                <Style.AppInfoSource className="source">
                     <Style.AppLinkWrapper>
                         <Style.AppLink className="footer-info" href="https://github.com/savasozcan/ticketmaster-events" target="_blank">
-                            Ticketmaster Events
+                            <img src="../../../images/source-code.png" />
                         </Style.AppLink>
                     </Style.AppLinkWrapper>
-                </Style.AppInfoWrapper>
+                </Style.AppInfoSource>
             </Style.AppWrapper>
         )
     }

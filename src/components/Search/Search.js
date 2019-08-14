@@ -1,5 +1,5 @@
 // Packages
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 // Actions
@@ -20,7 +20,7 @@ import { listEvent } from "../../services/eventServices";
 import * as Style from "./SearchStyle.js"
 
 
-class Search extends Component {
+class Search extends React.Component {
     constructor(props) {
         super(props);
 

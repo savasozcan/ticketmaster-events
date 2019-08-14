@@ -4,6 +4,7 @@ import React, { Component } from "react";
 // Components
 import EventTable from '../../components/EventTable/EventTable';
 import Search from '../../components/Search/Search'
+import Footer from '../../components/Footer/Footer'
 
 class EventList extends Component {
     constructor(props) {
@@ -18,6 +19,7 @@ class EventList extends Component {
                 <Search />
                 <br />
                 <EventTable />
+                <Footer />
             </div>
         );
     }

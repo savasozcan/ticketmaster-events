@@ -6,6 +6,7 @@ import EventTable from '../../components/EventTable/EventTable';
 import Search from '../../components/Search/Search'
 import Footer from '../../components/Footer/Footer'
 
+
 class EventList extends Component {
     constructor(props) {
         super(props);

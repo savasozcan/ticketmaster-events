@@ -1,6 +1,7 @@
 // Packages
 import styled from 'styled-components';
 
+
 export const AppWrapper = styled.div`
     position: relative;
     width: 85%;
@@ -13,20 +14,20 @@ export const AppWrapper = styled.div`
 export const AppInfoWrapper = styled.div`
     display: block;
     padding: 25px 5px;
-    
+
     @media screen and (min-width: 360px) and (max-width: 480px) {
         padding: 10px 5px;
     }
-    
+
     @media screen and (min-width: 481px) and (max-width: 600px) {
         padding: 15px 5px;
     }
-    
+
     @media screen and (min-width: 601px) and (max-width: 800px) {
         padding: 20px 5px;
     }
     `
-    
+
     export const AppInfoSource = styled.div`
     position: absolute;
     right: 0;
@@ -34,16 +35,16 @@ export const AppInfoWrapper = styled.div`
     padding-right: 20px;
     img {
         width: 30px;
-        
+
         @media screen and (min-width: 360px) and (max-width: 480px) {
             width: 20px;
         }
-        
+
         @media screen and (min-width: 481px) and (max-width: 600px) {
             width: 25px;
         }
     }
-    
+
     @media screen and (min-width: 360px) and (max-width: 480px) {
         top: 12px;
     }
@@ -51,16 +52,16 @@ export const AppInfoWrapper = styled.div`
     @media screen and (min-width: 481px) and (max-width: 600px) {
         top: 14px;
     }
-    
+
     @media screen and (min-width: 601px) and (max-width: 800px) {
         top: 18px;
     }
     `
-    
+
     export const AppName = styled.span`
     a {
         color: #8e6666;
-    }    
+    }
 `
 export const AppLinkWrapper = styled.span`
 

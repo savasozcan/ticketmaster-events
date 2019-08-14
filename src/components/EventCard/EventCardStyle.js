@@ -5,10 +5,13 @@ import styled from 'styled-components';
 export const AppWrapperDetail = styled.div`
     position: relative;
     background: linear-gradient(245deg,#0b80aa,#025e83);
-    padding: 20px;
     border-radius: 5px;
-    width: 80%;
+    width: 85%;
     margin: 0 auto;
+    padding: 20px;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
     & h1, span, p, h3 {
         color : #fff;
         font-family: 'Source Sans Pro', sans-serif;
@@ -18,6 +21,10 @@ export const AppWrapperDetail = styled.div`
             font-size: 14px;
         }
     }
+`
+
+export const AppWrapperInline = styled.div`
+    padding: 20px;
 `
 
 export const AppName = styled.h1`

@@ -4,8 +4,8 @@ import React from 'react';
 // Styles
 import * as Style from "./FooterStyle.js";
 
-class Footer extends React.Component {
 
+class Footer extends React.Component {
     render() {
         return (
             <Style.AppWrapper>

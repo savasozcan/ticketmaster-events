@@ -11,7 +11,7 @@ import {
 } from "../../actions/eventActions";
 
 // Constants
-import { createUrl } from "../../constants/baseConstants";
+import { alertify, createUrl, formatDate } from "../../constants/baseConstants";
 
 // Services
 import { listEvent } from "../../services/eventServices";
@@ -49,7 +49,11 @@ class EventTable extends Component {
                         if (response.body.page) {
                             this.props.onfetchEventListPage(response.body.page);
                         }
+                    } else {
+                        alertify.error("An unexpected error has occurred and try again later.");
                     }
+                } else {
+                    alertify.error("An unexpected error has occurred and try again later.");
                 }
                 this.props.onfetchEventListLoading(false);
             });
@@ -86,7 +90,7 @@ class EventTable extends Component {
                                             <br />
                                             {event.dates && event.dates.start && (
                                                 <div>
-                                                    <Style.AppText>Date:</Style.AppText> {event.dates.start.localDate}
+                                                    <Style.AppText>Date: {formatDate(event.dates.start.localDate)}</Style.AppText>
                                                 </div>
                                             )}
                                         </Style.AppDate>

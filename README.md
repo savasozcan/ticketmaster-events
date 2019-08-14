@@ -1,4 +1,4 @@
-<a href="https://tr.reactjs.org/"><img src="./images/react.png"></a>
+<a href="https://tr.reactjs.org/"><img src="./docs/images/react.png"></a>
 
 <!-- [![FVCproductions](https://avatars1.githubusercontent.com/u/4284691?v=3&s=200)](http://fvcproductions.com) -->
 
@@ -10,17 +10,17 @@
 
 **Home Page**
 
-<img src="./images/main.png">
+<img src="./docs/images/main.png">
 
 
 **Pagination**
 
-<img src="./images/pagination.png">
+<img src="./docs/images/pagination.png">
 
 
 **Detail Page**
 
-<img src="./images/detail.png">
+<img src="./docs/images/detail.png">
 
 ---
 

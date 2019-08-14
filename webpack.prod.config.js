@@ -2,15 +2,14 @@ const path = require('path');
 const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+const CopyPlugin = require('copy-webpack-plugin');
+
 
 module.exports = {
-    devtool: 'cheap-module-source-map',
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
-        chunkFilename: '[id].js',
-        publicPath: '/'
     },
     devServer: {
         historyApiFallback: true
@@ -69,6 +68,9 @@ module.exports = {
         new webpack.optimize.UglifyJsPlugin(),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('production')
-        })
+        }),
+        new CopyPlugin([
+            { from: './src/assets/images', to: 'images' }
+        ]),
     ]
 };

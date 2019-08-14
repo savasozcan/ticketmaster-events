@@ -10,7 +10,7 @@
   },
   "scripts": {
     "test": "jest --watchAll --verbose --updateSnapshot",
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --open --config webpack.dev.config.js",
     "build": "rimraf dist && webpack --config webpack.prod.config.js --progress --profile --color",
     "eject": "react-scripts eject"
   },

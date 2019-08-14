@@ -110,12 +110,14 @@ export const AppLocation = styled.td`
 export const AppButton = styled.button`
     background: transparent;
     background-color: ${props => props.active ? "#F5F5F5" : "#ede1e1"};
+    font-family: 'Source Sans Pro', sans-serif;
     border: none;
     padding: 15px 20px;
     margin: 10px 5px 0;
     cursor: pointer;
     border-radius: 5px;
     transition: background-color .4s ease;
+    outline: none;
     &:hover {
         background-color: #F5F5F5;
     }
@@ -141,6 +143,10 @@ export const AppButton = styled.button`
 export const PreviousAppButton = styled(AppButton)`
     float: left;
     margin: 10px 0 0;
+    cursor: ${props => props.disabled ? "not-allowed" : "pointer"};
+    &:hover {
+        background-color: ${props => props.disabled ? "#ede1e1" : "#F5F5F5"};
+    }
 
     @media screen and (min-width: 360px) and (max-width: 480px) {
         font-size: 8px;

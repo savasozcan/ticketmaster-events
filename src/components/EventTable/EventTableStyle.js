@@ -1,39 +1,47 @@
 // Packages
 import styled from 'styled-components';
 
+// Devices Size
+import { deviceMin, deviceMax } from '../../styles/Devices'
 
-export const AppWrapper = styled.table`
+export const AppWrapper = styled.div`
     position: relative;
     width: 85%;
     margin: 0 auto;
     text-align: center;
+`
+
+export const AppTable = styled.table`
+    position: relative;
+    width: 100%;
     font-family: 'Source Sans Pro', sans-serif;
 
-    @media screen and (min-width: 360px) and (max-width: 480px) {
+    @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
         margin-left: 2%;
+        width: 85%;
     }
 `
 
 export const AppRow = styled.tr`
-    width:100%;
-    display:block;
+    width: 100%;
+    display: block;
     padding: 30px 0;
     transition: background .4s ease;
     border-bottom: 1px solid #dbd0d0;
     color: #7f6d6d;
-    &:nth-child(odd) {
+    &:nth-child(even) {
         &:hover {
-            background:#ede1e1
+            background: #ede1e1
         }
     }
-    &:nth-child(even) {
+    &:nth-child(odd) {
         background: #F5F5F5;
         &:hover {
             background: #ede1e1
         }
     }
 
-    @media screen and (min-width: 360px) and (max-width: 480px) {
+    @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
         padding: 20px;
     }
 `
@@ -51,19 +59,19 @@ export const AppDetail = styled.td`
         transform: scale(1.2);
     }
 
-    @media screen and (min-width: 360px) and (max-width: 600px) {
+    @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
         right: 0;
         padding: 3px 6px;
         margin-top: -8px;
         margin-right: -36px;
     }
 
-    @media screen and (min-width: 481px) and (max-width: 600px) {
-        right: 45px;
-        margin-top: -5px;
+    @media screen and ${deviceMin.mobileL} and ${deviceMax.tablet} {
+        right: 10px;
+        margin-top: -30px;
     }
 
-    @media screen and (min-width: 601px) and (max-width: 800px) {
+    @media screen and ${deviceMin.tablet} and ${deviceMax.laptop} {
         right: 12px;
         margin-top: -22px;
         padding: 10px 15px;
@@ -74,7 +82,7 @@ export const AppDate = styled.td`
     padding-left: 10px;
     color: #7f6d6d;
 
-    @media screen and (min-width: 360px) and (max-width: 480px) {
+    @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
         font-size: 10px;
         padding-left: 0;
     }
@@ -84,11 +92,11 @@ export const AppText = styled.span`
     font-size: 18px;
     font-weight: 700;
 
-    @media screen and (min-width: 360px) and (max-width: 480px) {
+    @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
         font-size: 12px;
     }
 
-    @media screen and (min-width: 601px) and (max-width: 800px) {
+    @media screen and ${deviceMin.mobileL} and ${deviceMax.laptop} {
         font-size: 16px;
     }
 
@@ -98,11 +106,11 @@ export const AppLocation = styled.td`
     padding-left: 100px;
     text-align: left;
 
-    @media screen and (min-width: 360px) and (max-width: 600px) {
+    @media screen and ${deviceMin.mobileS} and ${deviceMax.tablet} {
         padding-left: 20px;
     }
 
-    @media screen and (min-width: 601px) and (max-width: 800px) {
+    @media screen and ${deviceMin.tablet} and ${deviceMax.laptop} {
         padding-left: 32px;
     }
 `
@@ -122,21 +130,10 @@ export const AppButton = styled.button`
         background-color: #F5F5F5;
     }
 
-    @media screen and (min-width: 360px) and (max-width: 480px) {
-        font-size: 8px;
-        width: 15px;
-        padding: 6px;
-        margin: 10px 2px 0;
-    }
-
-    @media screen and (min-width: 481px) and (max-width: 600px) {
-        width: 25px;
-        padding: 5px 10px;
-    }
-
-    @media screen and (min-width: 601px) and (max-width: 800px) {
-        padding: 5px 10px;
-        margin: 10px 2px 0;
+    @media screen and ${deviceMin.mobileS} and ${deviceMax.tablet} {
+        font-size: 10px;
+        padding: 8px 12px;
+        margin: 10px 3px 0;
     }
 `
 
@@ -148,15 +145,13 @@ export const PreviousAppButton = styled(AppButton)`
         background-color: ${props => props.disabled ? "#ede1e1" : "#F5F5F5"};
     }
 
-    @media screen and (min-width: 360px) and (max-width: 480px) {
+    @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
         font-size: 8px;
         width: 50px;
         padding: 8px 12px;
-        margin-right: 0;
-        margin-left: 9%;
     }
 
-    @media screen and (min-width: 481px) and (max-width: 600px) {
+    @media screen and ${deviceMin.mobileL} and ${deviceMax.tablet} {
         width: 65px;
         padding: 5px 10px;
         font-size: 12px
@@ -168,14 +163,13 @@ export const NextAppButton = styled(AppButton)`
     float: right;
     margin: 10px 0 0;
 
-    @media screen and (min-width: 360px) and (max-width: 480px) {
+    @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
         font-size: 8px;
         width: 50px;
         padding: 8px 12px;
-        margin-left: 0;
     }
 
-    @media screen and (min-width: 481px) and (max-width: 600px) {
+    @media screen and ${deviceMin.mobileL} and ${deviceMax.tablet} {
         width: 65px;
         padding: 5px 10px;
         font-size: 12px
@@ -188,21 +182,22 @@ export const AppLink = styled.span`
         color: #fff;
         font-size: 18px;
 
-        @media screen and (min-width: 360px) and (max-width: 480px) {
+        @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
             font-size: 12px;
         }
-        @media screen and (min-width: 601px) and (max-width: 800px) {
+        @media screen and ${deviceMin.mobileL} and ${deviceMax.laptop} {
             font-size: 164x;
         }
     }
 `
 
 export const AppName = styled.span`
+    display: block;
     font-size: 20px;
     font-weight: 700;
     color: #8e6666;
 
-    @media screen and (min-width: 360px) and (max-width: 480px) {
+    @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
         font-size: 12px;
         text-align: left;
     }
@@ -215,6 +210,7 @@ export const AppCity = styled.span`
 `
 
 export const Pagination = styled.div`
+    margin: 20px 0;
     text-align: center;
 `
 
@@ -226,11 +222,11 @@ export const NotFound = styled.div`
 export const AppThumb = styled.img`
     width: 200px;
 
-    @media screen and (min-width: 360px) and (max-width: 480px) {
+    @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
         width: 100px;
     }
 
-    @media screen and (min-width: 601px) and (max-width: 800px) {
+    @media screen and ${deviceMin.mobileL} and ${deviceMax.laptop} {
         width: 150px;
     }
 `

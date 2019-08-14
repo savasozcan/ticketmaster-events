@@ -1,6 +1,9 @@
 // Packages
 import styled from 'styled-components';
 
+// Devices Size
+import { deviceMin, deviceMax } from '../../styles/Devices'
+
 
 export const AppWrapperDetail = styled.div`
     position: relative;
@@ -17,7 +20,7 @@ export const AppWrapperDetail = styled.div`
         font-family: 'Source Sans Pro', sans-serif;
     }
     p, span {
-        @media screen and (min-width: 360px) and (max-width: 480px) {
+        @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
             font-size: 14px;
         }
     }
@@ -30,16 +33,16 @@ export const AppWrapperInline = styled.div`
 export const AppName = styled.h1`
     color: #fff;
 
-    @media screen and (min-width: 360px) and (max-width: 480px) {
+    @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
         font-size: 18px;
         margin-top: 15%;
     }
 
-    @media screen and (min-width: 481px) and (max-width: 600px) {
+    @media screen and ${deviceMin.mobileL} and ${deviceMax.tablet} {
         margin-top: 18%;
     }
 
-    @media screen and (min-width: 601px) and (max-width: 800px) {
+    @media screen and ${deviceMin.tablet} and ${deviceMax.laptop} {
         margin-top: 15%;
     }
 `
@@ -52,7 +55,7 @@ export const AppNameDetail = styled.h3`
     padding: 5px 10px;
     border-radius: 5px;
 
-    @media screen and (min-width: 360px) and (max-width: 480px) {
+    @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
         font-size: 14px;
     }
 `
@@ -60,10 +63,12 @@ export const AppNameDetail = styled.h3`
 export const AppSpan = styled.span.attrs(props => ({
     className: "info",
   }))`
+    display: block;
+    margin-top: 15px;
     font-size: 22px;
     font-weight: 700;
 
-    @media screen and (min-width: 360px) and (max-width: 480px) {
+    @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
         font-size: 14px;
     }
 `
@@ -86,12 +91,12 @@ export const AppHome = styled.span`
         font-family: 'Source Sans Pro', sans-serif;
         font-weight: 700;
 
-        @media screen and (min-width: 360px) and (max-width: 480px) {
+        @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
             font-size: 12px;
         }
     }
 
-    @media screen and (min-width: 360px) and (max-width: 480px) {
+    @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
         padding: 10px 5px;
     }
 `
@@ -110,15 +115,15 @@ export const AppThumb = styled.img`
     right: 10px;
     bottom: 10px;
 
-    @media screen and (min-width: 360px) and (max-width: 480px) {
+    @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
         width: 50px;
     }
 
-    @media screen and (min-width: 481px) and (max-width: 600px) {
+    @media screen and ${deviceMin.mobileL} and ${deviceMax.tablet} {
         width: 150px;
     }
 
-    @media screen and (min-width: 601px) and (max-width: 800px) {
+    @media screen and ${deviceMin.tablet} and ${deviceMax.laptop} {
         width: 200px;
     }
 `

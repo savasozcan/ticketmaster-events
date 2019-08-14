@@ -28,11 +28,13 @@ class EventTable extends Component {
         super(props);
 
         this.getPageData = this.getPageData.bind(this);
+        this.updateDimensions = this.updateDimensions.bind(this);
     }
 
     componentDidMount() {
         var pageNumber = this.props.events.page.number >= 0 ? this.props.events.page.number : 0;
         this.getPageData(pageNumber);
+        window.addEventListener("resize", this.updateDimensions);
     }
 
     getPageData(pageNumber) {
@@ -70,6 +72,20 @@ class EventTable extends Component {
         }
     }
 
+    updateDimensions() {
+        if (
+            window.innerWidth > 1024 &&
+            this.props.events.page.pagination &&
+            this.props.events.page.pagination.screen == "small") {
+            this.props.onfetchEventListPage(this.props.events.page);
+        } else if (
+            window.innerWidth < 1024 &&
+            this.props.events.page.pagination &&
+            this.props.events.page.pagination.screen == "big") {
+           this.props.onfetchEventListPage(this.props.events.page);
+        }
+    }
+
     render() {
         const { events } = this.props;
 
@@ -79,39 +95,39 @@ class EventTable extends Component {
                     <Loader></Loader>
                 ) : events.data.length > 0 ? (
                     <Style.AppWrapper>
-                        <tbody>
-                            {events.data.map((event, index) => {
-                                return (
-                                    <Style.AppRow key={index}>
-                                        <Style.AppDate>
-                                            {event.images.length > 0 && (
-                                                <Style.AppThumb src={ event.images[0].url }></Style.AppThumb>
-                                            )}
-                                            <br />
-                                            {event.dates && event.dates.start && (
-                                                <div>
-                                                    <Style.AppText>Date: {formatDate(event.dates.start.localDate)}</Style.AppText>
-                                                </div>
-                                            )}
-                                        </Style.AppDate>
-                                        <Style.AppLocation>
-                                            <Style.AppName>{event.name}</Style.AppName>
-                                            <br/>
-                                            {event._embedded.venues.length > 0 && (
-                                                <Style.AppCity>
-                                                    <i>{event._embedded.venues[0].city.name} / {event._embedded.venues[0].country.name}</i>
-                                                </Style.AppCity>
-                                            )}
-                                        </Style.AppLocation>
-                                        <Style.AppDetail>
-                                            <Style.AppLink>
-                                                <Link to={createUrl("event", event.id)}>Detail</Link>
-                                            </Style.AppLink>
-                                        </Style.AppDetail>
-                                    </Style.AppRow>
-                                )
-                            })}
-                        </tbody>
+                        <Style.AppTable>
+                            <tbody>
+                                {events.data.map((event, index) => {
+                                    return (
+                                        <Style.AppRow key={index}>
+                                            <Style.AppDate>
+                                                {event.images.length > 0 && (
+                                                    <Style.AppThumb src={ event.images[0].url }></Style.AppThumb>
+                                                )}
+                                                {event.dates && event.dates.start && (
+                                                    <div>
+                                                        <Style.AppText>Date: {formatDate(event.dates.start.localDate)}</Style.AppText>
+                                                    </div>
+                                                )}
+                                            </Style.AppDate>
+                                            <Style.AppLocation>
+                                                <Style.AppName>{event.name}</Style.AppName>
+                                                {event._embedded.venues.length > 0 && (
+                                                    <Style.AppCity>
+                                                        <i>{event._embedded.venues[0].city.name} / {event._embedded.venues[0].country.name}</i>
+                                                    </Style.AppCity>
+                                                )}
+                                            </Style.AppLocation>
+                                            <Style.AppDetail>
+                                                <Style.AppLink>
+                                                    <Link to={createUrl("event", event.id)}>Detail</Link>
+                                                </Style.AppLink>
+                                            </Style.AppDetail>
+                                        </Style.AppRow>
+                                    )
+                                })}
+                            </tbody>
+                        </Style.AppTable>
 
                         {events.page.pagination && (
                             <Style.Pagination>

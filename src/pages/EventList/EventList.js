@@ -18,7 +18,6 @@ class EventList extends Component {
         return (
             <div>
                 <Search />
-                <br />
                 <EventTable />
                 <Footer />
             </div>

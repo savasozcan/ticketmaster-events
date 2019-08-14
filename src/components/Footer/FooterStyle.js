@@ -1,6 +1,9 @@
 // Packages
 import styled from 'styled-components';
 
+// Devices Size
+import { deviceMin, deviceMax } from '../../styles/Devices'
+
 
 export const AppWrapper = styled.div`
     position: relative;
@@ -15,15 +18,15 @@ export const AppInfoWrapper = styled.div`
     display: block;
     padding: 25px 5px;
 
-    @media screen and (min-width: 360px) and (max-width: 480px) {
+    @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
         padding: 10px 5px;
     }
 
-    @media screen and (min-width: 481px) and (max-width: 600px) {
+    @media screen and ${deviceMin.mobileL} and ${deviceMax.tablet} {
         padding: 15px 5px;
     }
 
-    @media screen and (min-width: 601px) and (max-width: 800px) {
+    @media screen and ${deviceMin.tablet} and ${deviceMax.laptop} {
         padding: 20px 5px;
     }
     `
@@ -36,24 +39,24 @@ export const AppInfoWrapper = styled.div`
     img {
         width: 30px;
 
-        @media screen and (min-width: 360px) and (max-width: 480px) {
+        @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
             width: 20px;
         }
 
-        @media screen and (min-width: 481px) and (max-width: 600px) {
+        @media screen and ${deviceMin.mobileL} and ${deviceMax.tablet} {
             width: 25px;
         }
     }
 
-    @media screen and (min-width: 360px) and (max-width: 480px) {
+    @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
         top: 12px;
     }
 
-    @media screen and (min-width: 481px) and (max-width: 600px) {
+    @media screen and ${deviceMin.mobileL} and ${deviceMax.tablet} {
         top: 14px;
     }
 
-    @media screen and (min-width: 601px) and (max-width: 800px) {
+    @media screen and ${deviceMin.tablet} and ${deviceMax.laptop} {
         top: 18px;
     }
     `
@@ -77,15 +80,15 @@ export const AppLink = styled.a.attrs({
         float: right;
     }
 
-    @media screen and (min-width: 360px) and (max-width: 480px) {
+    @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
         font-size: 12px;
     }
 
-    @media screen and (min-width: 481px) and (max-width: 600px) {
+    @media screen and ${deviceMin.mobileL} and ${deviceMax.tablet} {
         font-size: 16px;
     }
 
-    @media screen and (min-width: 601px) and (max-width: 800px) {
+    @media screen and ${deviceMin.tablet} and ${deviceMax.laptop} {
         font-size: 18px;
     }
 `

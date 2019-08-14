@@ -91,7 +91,6 @@ class EventCard extends Component {
                         {event.data[eventId]._embedded && event.data[eventId]._embedded.venues.length > 0 && (
                             <Style.AppZone>{event.data[eventId]._embedded.venues[0].city.name} / {event.data[eventId]._embedded.venues[0].country.name}</Style.AppZone>
                         )}
-                        <br/><br/>
                         {event.data[eventId].dates && event.data[eventId].dates.start && (
                             <span>
                                 <Style.AppSpan className="info">Date: {formatDate(event.data[eventId].dates.start.localDate)}</Style.AppSpan>

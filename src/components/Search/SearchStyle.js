@@ -1,11 +1,13 @@
 // Packages
 import styled from 'styled-components';
 
+// Devices Size
+import { deviceMin, deviceMax } from '../../styles/Devices'
 
 export const AppWrapper = styled.div`
     width: 85%;
     text-align: center;
-    margin: 0 auto;
+    margin: 0 auto 4%;
     font-family: 'Source Sans Pro', sans-serif;
 `
 
@@ -23,13 +25,13 @@ export const AppInput = styled.input`
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 16px;
 
-    @media screen and (min-width: 360px) and (max-width: 480px) {
+    @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
         width: 95%;
         height: 35px;
         margin-top: 5%;
     }
 
-    @media screen and (min-width: 601px) and (max-width: 800px) {
+    @media screen and ${deviceMin.mobileL} and ${deviceMax.laptop} {
         margin-top: 4%;
     }
 `
@@ -70,14 +72,14 @@ export const AppButtonWrapper = styled.button`
         top: 30%;
     }
 
-    @media screen and (min-width: 360px) and (max-width: 480px) {
+    @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
         width: 80px;
         font-size: 12px;
         padding: 10px;
         margin 5% 0;
     }
 
-    @media screen and (min-width: 601px) and (max-width: 800px) {
+    @media screen and ${deviceMin.mobileL} and ${deviceMax.laptop} {
         width: 95px;
         font-size: 16px;
         padding: 10px 22px;

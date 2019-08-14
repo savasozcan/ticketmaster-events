@@ -7,6 +7,7 @@ import {
     FETCH_EVENT_RETRIEVE_DATA,
     FETCH_EVENT_RETRIEVE_LOADING
 } from '../constants/actionConstants';
+import { getPaginationInfo } from "../constants/baseConstants";
 
 
 // Event List
@@ -31,35 +32,8 @@ export function fetchEventListKeyword(keyword){
 
 
 export function fetchEventListPage(page){
-    var pagination = {
-        hasPreviousPage: false,
-        hasNextPage: false,
-        numbers: []
-    }
-    var pageNumber = page.number >= 0 ? page.number : 0;
-    var pointer = pageNumber - 3;
-    var count = 0;
+    page.pagination = getPaginationInfo(page);
 
-    if (pageNumber - 1 >= 0) {
-        pagination.hasPreviousPage = true;
-    }
-    if (page.totalPages && pageNumber + 1 <= page.totalPages - 1) {
-        pagination.hasNextPage = true;
-    }
-
-    while (count < 8) {
-        if (pointer >= 0 && pointer <= page.totalPages - 1) {
-            pagination.numbers.push(pointer);
-            count++;
-        }
-
-        if (pointer > page.totalPages - 1) {
-            break;
-        }
-        pointer++;
-    }
-
-    page.pagination = pagination;
     return {
         type: FETCH_EVENT_LIST_PAGE,
         payload: {

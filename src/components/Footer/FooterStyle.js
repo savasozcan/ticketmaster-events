@@ -1,8 +1,8 @@
 // Packages
 import styled from 'styled-components';
 
-// Devices Size
-import { deviceMin, deviceMax } from '../../styles/Devices'
+// Styles
+import { deviceMin, deviceMax } from '../../styles/DeviceStyle'
 
 
 export const AppWrapper = styled.div`

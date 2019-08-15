@@ -1,8 +1,9 @@
 // Packages
 import styled from 'styled-components';
 
-// Devices Size
-import { deviceMin, deviceMax } from '../../styles/Devices'
+// Styles
+import { deviceMin, deviceMax } from '../../styles/DeviceStyle'
+
 
 export const AppWrapper = styled.div`
     position: relative;
@@ -17,8 +18,7 @@ export const AppTable = styled.table`
     font-family: 'Source Sans Pro', sans-serif;
 
     @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
-        margin-left: 2%;
-        width: 85%;
+        width: 88%;
     }
 `
 
@@ -41,8 +41,12 @@ export const AppRow = styled.tr`
         }
     }
 
-    @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
-        padding: 20px;
+    @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileM} {
+        padding: 30px 15px;
+    }
+
+    @media screen and ${deviceMin.mobileM} and ${deviceMax.mobileL} {
+        padding: 30px 20px;
     }
 `
 
@@ -62,19 +66,18 @@ export const AppDetail = styled.td`
     @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
         right: 0;
         padding: 3px 6px;
-        margin-top: -8px;
-        margin-right: -36px;
+        margin-top: 0px;
+        margin-right: -25px;
     }
 
-    @media screen and ${deviceMin.mobileL} and ${deviceMax.tablet} {
-        right: 10px;
-        margin-top: -30px;
+    @media screen and ${deviceMin.mobileM} and ${deviceMax.mobileL} {
+        margin-right: -28px;
     }
 
-    @media screen and ${deviceMin.tablet} and ${deviceMax.laptop} {
-        right: 12px;
-        margin-top: -22px;
-        padding: 10px 15px;
+    @media screen and ${deviceMin.mobileL} and ${deviceMax.laptop} {
+        right: 8px;
+        margin-top: -5px;
+        padding: 5px 10px;
     }
 `
 
@@ -130,9 +133,12 @@ export const AppButton = styled.button`
         background-color: #F5F5F5;
     }
 
-    @media screen and ${deviceMin.mobileS} and ${deviceMax.tablet} {
-        font-size: 10px;
-        padding: 8px 12px;
+    @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileM} {
+        padding: 15px;
+        margin: 10px 3px 0;
+    }
+
+    @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
         margin: 10px 3px 0;
     }
 `
@@ -146,34 +152,15 @@ export const PreviousAppButton = styled(AppButton)`
     }
 
     @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
-        font-size: 8px;
-        width: 50px;
-        padding: 8px 12px;
+        font-size: 10px;
+        width: 60px;
+        padding: 10px 12px;
+        margin: 10px 2px 0;
     }
-
-    @media screen and ${deviceMin.mobileL} and ${deviceMax.tablet} {
-        width: 65px;
-        padding: 5px 10px;
-        font-size: 12px
-    }
-
 `
 
-export const NextAppButton = styled(AppButton)`
+export const NextAppButton = styled(PreviousAppButton)`
     float: right;
-    margin: 10px 0 0;
-
-    @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
-        font-size: 8px;
-        width: 50px;
-        padding: 8px 12px;
-    }
-
-    @media screen and ${deviceMin.mobileL} and ${deviceMax.tablet} {
-        width: 65px;
-        padding: 5px 10px;
-        font-size: 12px
-    }
 `
 
 export const AppLink = styled.span`
@@ -185,8 +172,9 @@ export const AppLink = styled.span`
         @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
             font-size: 12px;
         }
+
         @media screen and ${deviceMin.mobileL} and ${deviceMax.laptop} {
-            font-size: 164x;
+            font-size: 15px;
         }
     }
 `
@@ -199,6 +187,11 @@ export const AppName = styled.span`
 
     @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
         font-size: 12px;
+        text-align: left;
+    }
+
+    @media screen and ${deviceMin.mobileL} and ${deviceMax.tablet} {
+        font-size: 16px;
         text-align: left;
     }
 `
@@ -226,7 +219,11 @@ export const AppThumb = styled.img`
         width: 100px;
     }
 
-    @media screen and ${deviceMin.mobileL} and ${deviceMax.laptop} {
+    @media screen and ${deviceMin.mobileL} and ${deviceMax.tablet} {
+        width: 125px;
+    }
+
+    @media screen and ${deviceMin.tablet} and ${deviceMax.laptop} {
         width: 150px;
     }
 `

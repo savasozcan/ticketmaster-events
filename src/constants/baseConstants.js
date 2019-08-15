@@ -20,12 +20,12 @@ export function getPaginationInfo(page) {
         hasPreviousPage: false,
         hasNextPage: false,
         numbers: [],
-        screen: window.innerWidth > 1024 ? "big" : "small",
+        screen: window.innerWidth > 1024 ? "desktop" : window.innerWidth > 600 ? "tablet" : "mobile"
     }
     var pageNumber = page.number >= 0 ? page.number : 0;
-    var pointer = pagination.screen == "big" ? pageNumber - 3 : pageNumber - 1;
+    var pointer = pagination.screen == "desktop" ? pageNumber - 3 : pageNumber - 1;
     var count = 0;
-    var maxCount = pagination.screen == "big" ? 8 : 5;
+    var maxCount = pagination.screen == "desktop" ? 8 : pagination.screen == "tablet" ? 5 : 3;
 
 
     if (pageNumber - 1 >= 0) {

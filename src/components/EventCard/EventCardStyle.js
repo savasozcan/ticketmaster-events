@@ -1,8 +1,8 @@
 // Packages
 import styled from 'styled-components';
 
-// Devices Size
-import { deviceMin, deviceMax } from '../../styles/Devices'
+// Styles
+import { deviceMin, deviceMax } from '../../styles/DeviceStyle'
 
 
 export const AppWrapperDetail = styled.div`
@@ -97,6 +97,8 @@ export const AppHome = styled.span`
     }
 
     @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
+        top: 3%;
+        right: 12%;
         padding: 10px 5px;
     }
 `

@@ -63,7 +63,7 @@ class Search extends React.Component {
 
         return (
             <Style.AppWrapper>
-                <form onSubmit={this.onSubmit}>
+                <Style.AppForm onSubmit={this.onSubmit}>
                     <Style.AppInput
                         type="text"
                         placeholder="Filter by name..."
@@ -74,7 +74,7 @@ class Search extends React.Component {
                     <Style.AppButtonWrapper className="btn-2 icon-up">
                         <Style.AppButton>Search</Style.AppButton>
                     </Style.AppButtonWrapper>
-                </form>
+                </Style.AppForm>
             </Style.AppWrapper>
         )
     }

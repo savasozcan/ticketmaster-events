@@ -1,18 +1,30 @@
 // Packages
 import styled from 'styled-components';
 
-// Devices Size
-import { deviceMin, deviceMax } from '../../styles/Devices'
+// Styles
+import { deviceMin, deviceMax } from '../../styles/DeviceStyle'
+
 
 export const AppWrapper = styled.div`
     width: 85%;
     text-align: center;
-    margin: 0 auto 4%;
+    margin: 4% auto;
     font-family: 'Source Sans Pro', sans-serif;
 `
 
+export const AppForm = styled.form`
+    display: flex;
+    flex-flow: row nowrap;
+    align-content: space-between;
+    justify-content: space-between;
+
+    @media ${deviceMax.tablet} {
+        flex-direction: column;
+    }
+`
+
 export const AppInput = styled.input`
-    width: 75%;
+    width: 90%;
     height: 50px;
     outline: none;
     border: none;
@@ -25,14 +37,8 @@ export const AppInput = styled.input`
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 16px;
 
-    @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
-        width: 95%;
-        height: 35px;
-        margin-top: 5%;
-    }
-
-    @media screen and ${deviceMin.mobileL} and ${deviceMax.laptop} {
-        margin-top: 4%;
+    @media ${deviceMax.tablet} {
+        margin: 20px auto;
     }
 `
 
@@ -45,7 +51,7 @@ export const AppButtonWrapper = styled.button`
     width: 150px;
     text-transform: uppercase;
     padding: 15px 40px;
-    margin: 15px 30px;
+    margin-left: 15px;
     border-radius: 5px;
     background: #4c3737;
     overflow: hidden;
@@ -72,17 +78,8 @@ export const AppButtonWrapper = styled.button`
         top: 30%;
     }
 
-    @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
-        width: 80px;
-        font-size: 12px;
-        padding: 10px;
-        margin 5% 0;
-    }
-
-    @media screen and ${deviceMin.mobileL} and ${deviceMax.laptop} {
-        width: 95px;
-        font-size: 16px;
-        padding: 10px 22px;
+    @media ${deviceMax.tablet} {
+        margin: 0 auto;
     }
 `
 

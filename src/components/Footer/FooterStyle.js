@@ -2,19 +2,18 @@
 import styled from 'styled-components';
 
 // Styles
-import { deviceMin, deviceMax } from '../../styles/DeviceStyle'
+import { deviceMin, deviceMax } from '../../styles/DeviceStyle';
+import { colors, fonts } from '../../styles/VariableStyle';
 
+// Global Style
+import * as Global from '../../styles/GlobalStyle';
 
-export const AppWrapper = styled.div`
-    position: relative;
-    width: 85%;
+export const AppWrapper = styled(Global.AppWrapper)`
     margin: 4% auto 0;
-    background-color: #F5F5F5;
-    text-align: center;
-    font-family: 'Source Sans Pro', sans-serif;
+    background-color: ${colors.color_4};
 `
 
-export const AppInfoWrapper = styled.div`
+export const InfoWrapper = styled.div`
     display: block;
     padding: 25px 5px;
 
@@ -31,7 +30,7 @@ export const AppInfoWrapper = styled.div`
     }
     `
 
-    export const AppInfoSource = styled.div`
+    export const InfoSource = styled.div`
     position: absolute;
     right: 0;
     top: 27px;
@@ -61,16 +60,16 @@ export const AppInfoWrapper = styled.div`
     }
     `
 
-    export const AppName = styled.span`
+    export const Name = styled.span`
     a {
-        color: #8e6666;
+        color: ${colors.color_6};
     }
 `
-export const AppLinkWrapper = styled.span`
+export const LinkWrapper = styled.span`
 
 `
 
-export const AppLink = styled.a.attrs({
+export const Link = styled.a.attrs({
     className: "footer-info",
   })`
     font-size: 20px;

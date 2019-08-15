@@ -19,7 +19,6 @@ import { listEvent } from "../../services/eventServices";
 // Styles
 import * as Style from "./SearchStyle.js"
 
-
 class Search extends React.Component {
     constructor(props) {
         super(props);
@@ -63,18 +62,18 @@ class Search extends React.Component {
 
         return (
             <Style.AppWrapper>
-                <Style.AppForm onSubmit={this.onSubmit}>
-                    <Style.AppInput
+                <Style.Form onSubmit={this.onSubmit}>
+                    <Style.Input
                         type="text"
                         placeholder="Filter by name..."
                         name="keyword"
                         value={keyword}
                         onChange={this.onChange}>
-                    </Style.AppInput>
-                    <Style.AppButtonWrapper className="btn-2 icon-up">
-                        <Style.AppButton>Search</Style.AppButton>
-                    </Style.AppButtonWrapper>
-                </Style.AppForm>
+                    </Style.Input>
+                    <Style.ButtonWrapper className="btn-2 icon-up">
+                        <Style.Button>Search</Style.Button>
+                    </Style.ButtonWrapper>
+                </Style.Form>
             </Style.AppWrapper>
         )
     }

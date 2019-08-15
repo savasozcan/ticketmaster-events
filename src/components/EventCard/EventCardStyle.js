@@ -2,22 +2,22 @@
 import styled from 'styled-components';
 
 // Styles
-import { deviceMin, deviceMax } from '../../styles/DeviceStyle'
+import { deviceMin, deviceMax } from '../../styles/DeviceStyle';
+import { colors, fonts } from '../../styles/VariableStyle';
 
+// Global Style
+import * as Global from '../../styles/GlobalStyle';
 
-export const AppWrapperDetail = styled.div`
-    position: relative;
-    background: linear-gradient(245deg,#0b80aa,#025e83);
+export const AppWrapper = styled(Global.AppWrapper)`
+    background: linear-gradient(245deg,${colors.color_8},${colors.color_11});
     border-radius: 5px;
-    width: 85%;
-    margin: 0 auto;
     padding: 20px;
+    text-align: left;
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
     box-sizing: border-box;         /* Opera/IE 8+ */
     & h1, span, p, h3 {
-        color : #fff;
-        font-family: 'Source Sans Pro', sans-serif;
+        color : ${colors.color_2};
     }
     p, span {
         @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
@@ -30,8 +30,8 @@ export const AppWrapperInline = styled.div`
     padding: 20px;
 `
 
-export const AppName = styled.h1`
-    color: #fff;
+export const Name = styled.h1`
+    color: ${colors.color_2};
 
     @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
         font-size: 18px;
@@ -47,11 +47,11 @@ export const AppName = styled.h1`
     }
 `
 
-export const AppNameDetail = styled.h3`
+export const NameDetail = styled.h3`
     display: inline-block;
     font-weight: 700;
-    color: #fff;
-    background: #0b80aa;
+    color: ${colors.color_2};
+    background: ${colors.color_8};
     padding: 5px 10px;
     border-radius: 5px;
 
@@ -60,7 +60,7 @@ export const AppNameDetail = styled.h3`
     }
 `
 
-export const AppSpan = styled.span.attrs(props => ({
+export const Span = styled.span.attrs(props => ({
     className: "info",
   }))`
     display: block;
@@ -73,12 +73,12 @@ export const AppSpan = styled.span.attrs(props => ({
     }
 `
 
-export const AppHome = styled.span`
+export const Home = styled.span`
     position: absolute;
     top: 2%;
     right: 10%;
-    background: #4c3737;
-    color: white;
+    background: ${colors.color_9};
+    color: ${colors.color_2};
     padding: 15px 20px;
     border-radius: 5px;
     transition: transform .4s;
@@ -87,8 +87,8 @@ export const AppHome = styled.span`
     }
     & a {
         text-decoration: none;
-        color: #fff;
-        font-family: 'Source Sans Pro', sans-serif;
+        color: ${colors.color_2};
+        font-family: ${fonts.fontFamily};
         font-weight: 700;
 
         @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
@@ -103,15 +103,15 @@ export const AppHome = styled.span`
     }
 `
 
-export const AppZone = styled.span`
-  background: #1db51d;
+export const Zone = styled.span`
+  background: ${colors.color_10};
   padding: 5px 10px;
   font-size: 12px;
   font-weight: 700;
   border-radius: 5px;
 `
 
-export const AppThumb = styled.img`
+export const Thumb = styled.img`
     position: absolute;
     width: 250px;
     right: 10px;

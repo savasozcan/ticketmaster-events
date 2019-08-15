@@ -2,42 +2,41 @@
 import styled from 'styled-components';
 
 // Styles
-import { deviceMin, deviceMax } from '../../styles/DeviceStyle'
+import { deviceMin, deviceMax } from '../../styles/DeviceStyle';
+import { colors, fonts } from '../../styles/VariableStyle';
 
+// Global Styles
+import * as Global from '../../styles/GlobalStyle';
 
-export const AppWrapper = styled.div`
-    position: relative;
-    width: 85%;
-    margin: 0 auto;
-    text-align: center;
+export const AppWrapper = styled(Global.AppWrapper)`
+    
 `
 
-export const AppTable = styled.table`
+export const Table = styled.table`
     position: relative;
     width: 100%;
-    font-family: 'Source Sans Pro', sans-serif;
 
     @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
         width: 88%;
     }
 `
 
-export const AppRow = styled.tr`
+export const Row = styled.tr`
     width: 100%;
     display: block;
     padding: 30px 0;
     transition: background .4s ease;
-    border-bottom: 1px solid #dbd0d0;
-    color: #7f6d6d;
+    border-bottom: 1px solid ${colors.color_13};
+    color: ${colors.color_3};
     &:nth-child(even) {
         &:hover {
-            background: #ede1e1
+            background: ${colors.color_5}
         }
     }
     &:nth-child(odd) {
-        background: #F5F5F5;
+        background: ${colors.color_4};
         &:hover {
-            background: #ede1e1
+            background: ${colors.color_5}
         }
     }
 
@@ -50,11 +49,11 @@ export const AppRow = styled.tr`
     }
 `
 
-export const AppDetail = styled.td`
+export const Detail = styled.td`
     position: absolute;
     right: 30px;
     margin-top: -110px;
-    background: #7f6d6d;
+    background: ${colors.color_3};
     padding: 15px 20px;
     text-decoration: none;
     border-radius: 5px;
@@ -81,9 +80,9 @@ export const AppDetail = styled.td`
     }
 `
 
-export const AppDate = styled.td`
+export const Date = styled.td`
     padding-left: 10px;
-    color: #7f6d6d;
+    color: ${colors.color_3};
 
     @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
         font-size: 10px;
@@ -91,7 +90,7 @@ export const AppDate = styled.td`
     }
 `
 
-export const AppText = styled.span`
+export const DateText = styled.span`
     font-size: 18px;
     font-weight: 700;
 
@@ -105,7 +104,7 @@ export const AppText = styled.span`
 
 `
 
-export const AppLocation = styled.td`
+export const Location = styled.td`
     padding-left: 100px;
     text-align: left;
 
@@ -118,10 +117,10 @@ export const AppLocation = styled.td`
     }
 `
 
-export const AppButton = styled.button`
+export const PaginationButton = styled.button`
     background: transparent;
-    background-color: ${props => props.active ? "#F5F5F5" : "#ede1e1"};
-    font-family: 'Source Sans Pro', sans-serif;
+    background-color: ${props => props.active ? `${colors.color_4}` : `${colors.color_5}`};
+    font-family: ${fonts.fontFamily};
     border: none;
     padding: 15px 20px;
     margin: 10px 5px 0;
@@ -130,7 +129,7 @@ export const AppButton = styled.button`
     transition: background-color .4s ease;
     outline: none;
     &:hover {
-        background-color: #F5F5F5;
+        background-color: ${colors.color_4};
     }
 
     @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileM} {
@@ -143,12 +142,12 @@ export const AppButton = styled.button`
     }
 `
 
-export const PreviousAppButton = styled(AppButton)`
+export const PreviousAppButton = styled(PaginationButton)`
     float: left;
     margin: 10px 0 0;
     cursor: ${props => props.disabled ? "not-allowed" : "pointer"};
     &:hover {
-        background-color: ${props => props.disabled ? "#ede1e1" : "#F5F5F5"};
+        background-color: ${props => props.disabled ? `${colors.color_5}` : `${colors.color_4}`};
     }
 
     @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
@@ -163,10 +162,10 @@ export const NextAppButton = styled(PreviousAppButton)`
     float: right;
 `
 
-export const AppLink = styled.span`
+export const DetailLink = styled.span`
     & a{
         text-decoration: none;
-        color: #fff;
+        color: ${colors.color_2};
         font-size: 18px;
 
         @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
@@ -179,11 +178,11 @@ export const AppLink = styled.span`
     }
 `
 
-export const AppName = styled.span`
+export const Name = styled.span`
     display: block;
     font-size: 20px;
     font-weight: 700;
-    color: #8e6666;
+    color: ${colors.color_6};
 
     @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
         font-size: 12px;
@@ -196,10 +195,10 @@ export const AppName = styled.span`
     }
 `
 
-export const AppCity = styled.span`
+export const City = styled.span`
     font-size: 12px;
     float: left;
-    color: #7f6d6d;
+    color: ${colors.color_3};
 `
 
 export const Pagination = styled.div`
@@ -209,10 +208,10 @@ export const Pagination = styled.div`
 
 export const NotFound = styled.div`
     text-align: center;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: ${fonts.fontFamily};
 `
 
-export const AppThumb = styled.img`
+export const Thumb = styled.img`
     width: 200px;
 
     @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {

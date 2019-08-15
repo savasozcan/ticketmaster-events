@@ -22,7 +22,6 @@ import Loader from "../Loader/Loader";
 // Styles
 import * as Style from './EventTableStyle.js';
 
-
 class EventTable extends Component {
     constructor(props) {
         super(props);
@@ -101,39 +100,39 @@ class EventTable extends Component {
                     <Loader></Loader>
                 ) : events.data.length > 0 ? (
                     <Style.AppWrapper>
-                        <Style.AppTable>
+                        <Style.Table>
                             <tbody>
                                 {events.data.map((event, index) => {
                                     return (
-                                        <Style.AppRow key={index}>
-                                            <Style.AppDate>
+                                        <Style.Row key={index}>
+                                            <Style.Date>
                                                 {event.images.length > 0 && (
-                                                    <Style.AppThumb src={ event.images[0].url }></Style.AppThumb>
+                                                    <Style.Thumb src={ event.images[0].url }></Style.Thumb>
                                                 )}
                                                 {event.dates && event.dates.start && (
                                                     <div>
-                                                        <Style.AppText>Date: {formatDate(event.dates.start.localDate)}</Style.AppText>
+                                                        <Style.DateText>Date: {formatDate(event.dates.start.localDate)}</Style.DateText>
                                                     </div>
                                                 )}
-                                            </Style.AppDate>
-                                            <Style.AppLocation>
-                                                <Style.AppName>{event.name}</Style.AppName>
+                                            </Style.Date>
+                                            <Style.Location>
+                                                <Style.Name>{event.name}</Style.Name>
                                                 {event._embedded.venues.length > 0 && (
-                                                    <Style.AppCity>
+                                                    <Style.City>
                                                         <i>{event._embedded.venues[0].city.name} / {event._embedded.venues[0].country.name}</i>
-                                                    </Style.AppCity>
+                                                    </Style.City>
                                                 )}
-                                            </Style.AppLocation>
-                                            <Style.AppDetail>
-                                                <Style.AppLink>
+                                            </Style.Location>
+                                            <Style.Detail>
+                                                <Style.DetailLink>
                                                     <Link to={createUrl("event", event.id)}>Detail</Link>
-                                                </Style.AppLink>
-                                            </Style.AppDetail>
-                                        </Style.AppRow>
+                                                </Style.DetailLink>
+                                            </Style.Detail>
+                                        </Style.Row>
                                     )
                                 })}
                             </tbody>
-                        </Style.AppTable>
+                        </Style.Table>
 
                         {events.page.pagination && (
                             <Style.Pagination>
@@ -144,13 +143,13 @@ class EventTable extends Component {
                                     Previous Page
                                 </Style.PreviousAppButton>
                                 {events.page.pagination.numbers.map((value, index) =>
-                                    <Style.AppButton
+                                    <Style.PaginationButton
                                         onClick={() => this.getPageData(value)}
                                         type="button"
                                         key={index}
                                         active={events.page.number == value}>
                                         {value + 1}
-                                    </Style.AppButton>
+                                    </Style.PaginationButton>
                                 )}
                                 <Style.NextAppButton
                                     onClick={() => this.getPageData(events.page.number + 1)}

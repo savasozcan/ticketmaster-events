@@ -9,20 +9,20 @@ class Footer extends React.Component {
     render() {
         return (
             <Style.AppWrapper>
-                <Style.AppInfoWrapper>
-                    <Style.AppName>
-                        <Style.AppLink className="footer-info" href="https://github.com/savasozcan" target="_blank">
+                <Style.InfoWrapper>
+                    <Style.Name>
+                        <Style.Link className="footer-info" href="https://github.com/savasozcan" target="_blank">
                             Savaş Özcan
-                        </Style.AppLink>
-                    </Style.AppName>
-                </Style.AppInfoWrapper>
-                <Style.AppInfoSource className="source">
-                    <Style.AppLinkWrapper>
-                        <Style.AppLink className="footer-info" href="https://github.com/savasozcan/ticketmaster-events" target="_blank">
+                        </Style.Link>
+                    </Style.Name>
+                </Style.InfoWrapper>
+                <Style.InfoSource className="source">
+                    <Style.LinkWrapper>
+                        <Style.Link className="footer-info" href="https://github.com/savasozcan/ticketmaster-events" target="_blank">
                             <img src="/images/source-code.png" />
-                        </Style.AppLink>
-                    </Style.AppLinkWrapper>
-                </Style.AppInfoSource>
+                        </Style.Link>
+                    </Style.LinkWrapper>
+                </Style.InfoSource>
             </Style.AppWrapper>
         )
     }

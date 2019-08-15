@@ -77,32 +77,32 @@ class EventCard extends Component {
                 {event.loading && !event.data[eventId] ? (
                     <Loader></Loader>
                 ) : event.data[eventId] && (
-                    <Style.AppWrapperDetail>
-                        <Style.AppName>{event.data[eventId].name}</Style.AppName>
+                    <Style.AppWrapper>
+                        <Style.Name>{event.data[eventId].name}</Style.Name>
                         {event.data[eventId].promoter && event.data[eventId].promoter.description && (
-                            <Style.AppNameDetail>{event.data[eventId].promoter.description}</Style.AppNameDetail>
+                            <Style.NameDetail>{event.data[eventId].promoter.description}</Style.NameDetail>
                         )}
                         {event.data[eventId]._embedded && event.data[eventId]._embedded.venues.length > 0 && (
                             <p>
-                                <Style.AppSpan className="info">Adress: </Style.AppSpan>
-                                <Style.AppSpan>{event.data[eventId]._embedded.venues[0].address.line1} / {event.data[eventId]._embedded.venues[0].address.line2}</Style.AppSpan>
+                                <Style.Span className="info">Adress: </Style.Span>
+                                <Style.Span>{event.data[eventId]._embedded.venues[0].address.line1} / {event.data[eventId]._embedded.venues[0].address.line2}</Style.Span>
                             </p>
                         )}
                         {event.data[eventId]._embedded && event.data[eventId]._embedded.venues.length > 0 && (
-                            <Style.AppZone>{event.data[eventId]._embedded.venues[0].city.name} / {event.data[eventId]._embedded.venues[0].country.name}</Style.AppZone>
+                            <Style.Zone>{event.data[eventId]._embedded.venues[0].city.name} / {event.data[eventId]._embedded.venues[0].country.name}</Style.Zone>
                         )}
                         {event.data[eventId].dates && event.data[eventId].dates.start && (
                             <span>
-                                <Style.AppSpan className="info">Date: {formatDate(event.data[eventId].dates.start.localDate)}</Style.AppSpan>
+                                <Style.Span className="info">Date: {formatDate(event.data[eventId].dates.start.localDate)}</Style.Span>
                             </span>
                         )}
                         {event.data[eventId].images.length > 0 && (
-                            <Style.AppThumb src={event.data[eventId].images[0].url}></Style.AppThumb>
+                            <Style.Thumb src={event.data[eventId].images[0].url}></Style.Thumb>
                         )}
-                    </Style.AppWrapperDetail>
+                    </Style.AppWrapper>
                 )}
 
-                <Style.AppHome><Link to="/">Home Page</Link></Style.AppHome>
+                <Style.Home><Link to="/">Home Page</Link></Style.Home>
             </div>
         );
     }

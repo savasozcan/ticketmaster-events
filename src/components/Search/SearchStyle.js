@@ -3,10 +3,11 @@ import styled from 'styled-components';
 
 // Styles
 import { deviceMin, deviceMax } from '../../styles/DeviceStyle';
-import { colors, fonts } from '../../styles/VariableStyle';
+import * as Style from '../../styles/VariableStyle';
 
 // Global Styles
 import * as Global from '../../styles/GlobalStyle';
+
 
 export const AppWrapper = styled(Global.AppWrapper)`
     margin: 4% auto;
@@ -28,13 +29,13 @@ export const Input = styled.input`
     height: 50px;
     outline: none;
     border: none;
-    box-shadow: 0 5px 20px -8px ${colors.color_3};
+    box-shadow: 0 5px 20px -8px ${Style.gray};
     border-radius: 5px;
     padding-left: 10px;
     top: calc(50% - 20px);
     left: calc(50% - 200px);
     transition-duration: .6s;
-    font-family: ${fonts.fontFamily};
+    font-family: ${Style.source_sans};
     font-size: 16px;
 
     @media ${deviceMax.tablet} {
@@ -44,8 +45,8 @@ export const Input = styled.input`
 
 export const ButtonWrapper = styled.button`
     position: relative;
-    color: ${colors.color_2};
-    font-family: ${fonts.fontFamily};
+    color: ${Style.white};
+    font-family: ${Style.source_sans};
     font-size: 18px;
     font-weight: 700;
     width: 150px;
@@ -53,10 +54,11 @@ export const ButtonWrapper = styled.button`
     padding: 15px 40px;
     margin-left: 15px;
     border-radius: 5px;
-    background: ${colors.color_9};
+    background: ${Style.dark_gray};
     overflow: hidden;
     cursor: pointer;
     border: none;
+    outline: none;
     &:before {
         position: absolute;
         content: "↑";
@@ -65,11 +67,6 @@ export const ButtonWrapper = styled.button`
         font-weight: 700;
         font-size: 20px;
         transition: all .4s;
-    }
-    &:active {
-        background: ${colors.color_12};
-        color: ${colors.color_7};
-        top: 2px;
     }
     &:hover span {
         transform: translateY(300%);

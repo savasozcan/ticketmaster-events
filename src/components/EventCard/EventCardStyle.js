@@ -3,13 +3,14 @@ import styled from 'styled-components';
 
 // Styles
 import { deviceMin, deviceMax } from '../../styles/DeviceStyle';
-import { colors, fonts } from '../../styles/VariableStyle';
+import * as Style from '../../styles/VariableStyle';
 
 // Global Style
 import * as Global from '../../styles/GlobalStyle';
 
+
 export const AppWrapper = styled(Global.AppWrapper)`
-    background: linear-gradient(245deg,${colors.color_8},${colors.color_11});
+    background: linear-gradient(245deg,${Style.light_blue},${Style.secondary_color});
     border-radius: 5px;
     padding: 20px;
     text-align: left;
@@ -17,7 +18,7 @@ export const AppWrapper = styled(Global.AppWrapper)`
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
     box-sizing: border-box;         /* Opera/IE 8+ */
     & h1, span, p, h3 {
-        color : ${colors.color_2};
+        color : ${Style.white};
     }
     p, span {
         @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
@@ -31,7 +32,7 @@ export const AppWrapperInline = styled.div`
 `
 
 export const Name = styled.h1`
-    color: ${colors.color_2};
+    color: ${Style.white};
 
     @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
         font-size: 18px;
@@ -50,8 +51,8 @@ export const Name = styled.h1`
 export const NameDetail = styled.h3`
     display: inline-block;
     font-weight: 700;
-    color: ${colors.color_2};
-    background: ${colors.color_8};
+    color: ${Style.white};
+    background: ${Style.light_blue};
     padding: 5px 10px;
     border-radius: 5px;
 
@@ -77,20 +78,18 @@ export const Home = styled.span`
     position: absolute;
     top: 2%;
     right: 10%;
-    background: ${colors.color_9};
-    color: ${colors.color_2};
+    background: ${Style.dark_gray};
+    color: ${Style.white};
     padding: 15px 20px;
     border-radius: 5px;
+    text-decoration: none;
     transition: transform .4s;
+    font-family: ${Style.source_sans};
+    font-weight: 700;
     &:hover {
         transform: scale(1.1);
     }
-    & a {
-        text-decoration: none;
-        color: ${colors.color_2};
-        font-family: ${fonts.fontFamily};
-        font-weight: 700;
-
+    & span {
         @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
             font-size: 12px;
         }
@@ -104,7 +103,7 @@ export const Home = styled.span`
 `
 
 export const Zone = styled.span`
-  background: ${colors.color_10};
+  background: ${Style.green};
   padding: 5px 10px;
   font-size: 12px;
   font-weight: 700;

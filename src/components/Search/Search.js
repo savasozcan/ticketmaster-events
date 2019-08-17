@@ -19,6 +19,7 @@ import { listEvent } from "../../services/eventServices";
 // Styles
 import * as Style from "./SearchStyle.js"
 
+
 class Search extends React.Component {
     constructor(props) {
         super(props);

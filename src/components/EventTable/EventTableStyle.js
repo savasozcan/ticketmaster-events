@@ -3,13 +3,14 @@ import styled from 'styled-components';
 
 // Styles
 import { deviceMin, deviceMax } from '../../styles/DeviceStyle';
-import { colors, fonts } from '../../styles/VariableStyle';
+import * as Style from '../../styles/VariableStyle';
 
 // Global Styles
 import * as Global from '../../styles/GlobalStyle';
 
+
 export const AppWrapper = styled(Global.AppWrapper)`
-    
+
 `
 
 export const Table = styled.table`
@@ -26,17 +27,17 @@ export const Row = styled.tr`
     display: block;
     padding: 30px 0;
     transition: background .4s ease;
-    border-bottom: 1px solid ${colors.color_13};
-    color: ${colors.color_3};
+    border-bottom: 1px solid ${Style.border_gray};
+    color: ${Style.gray};
     &:nth-child(even) {
         &:hover {
-            background: ${colors.color_5}
+            background: ${Style.hover_gray}
         }
     }
     &:nth-child(odd) {
-        background: ${colors.color_4};
+        background: ${Style.primary_color};
         &:hover {
-            background: ${colors.color_5}
+            background: ${Style.hover_gray}
         }
     }
 
@@ -53,7 +54,7 @@ export const Detail = styled.td`
     position: absolute;
     right: 30px;
     margin-top: -110px;
-    background: ${colors.color_3};
+    background: ${Style.gray};
     padding: 15px 20px;
     text-decoration: none;
     border-radius: 5px;
@@ -82,7 +83,7 @@ export const Detail = styled.td`
 
 export const Date = styled.td`
     padding-left: 10px;
-    color: ${colors.color_3};
+    color: ${Style.gray};
 
     @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
         font-size: 10px;
@@ -119,8 +120,7 @@ export const Location = styled.td`
 
 export const PaginationButton = styled.button`
     background: transparent;
-    background-color: ${props => props.active ? `${colors.color_4}` : `${colors.color_5}`};
-    font-family: ${fonts.fontFamily};
+    background-color: ${props => props.active ? `${Style.primary_color}` : `${Style.hover_gray}`};
     border: none;
     padding: 15px 20px;
     margin: 10px 5px 0;
@@ -129,7 +129,7 @@ export const PaginationButton = styled.button`
     transition: background-color .4s ease;
     outline: none;
     &:hover {
-        background-color: ${colors.color_4};
+        background-color: ${Style.primary_color};
     }
 
     @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileM} {
@@ -147,7 +147,7 @@ export const PreviousAppButton = styled(PaginationButton)`
     margin: 10px 0 0;
     cursor: ${props => props.disabled ? "not-allowed" : "pointer"};
     &:hover {
-        background-color: ${props => props.disabled ? `${colors.color_5}` : `${colors.color_4}`};
+        background-color: ${props => props.disabled ? `${Style.hover_gray}` : `${Style.primary_color}`};
     }
 
     @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
@@ -165,7 +165,7 @@ export const NextAppButton = styled(PreviousAppButton)`
 export const DetailLink = styled.span`
     & a{
         text-decoration: none;
-        color: ${colors.color_2};
+        color: ${Style.white};
         font-size: 18px;
 
         @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
@@ -182,7 +182,7 @@ export const Name = styled.span`
     display: block;
     font-size: 20px;
     font-weight: 700;
-    color: ${colors.color_6};
+    color: ${Style.gray};
 
     @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
         font-size: 12px;
@@ -198,7 +198,7 @@ export const Name = styled.span`
 export const City = styled.span`
     font-size: 12px;
     float: left;
-    color: ${colors.color_3};
+    color: ${Style.gray};
 `
 
 export const Pagination = styled.div`
@@ -208,7 +208,7 @@ export const Pagination = styled.div`
 
 export const NotFound = styled.div`
     text-align: center;
-    font-family: ${fonts.fontFamily};
+    font-family: ${Style.source_sans};
 `
 
 export const Thumb = styled.img`

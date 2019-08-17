@@ -75,18 +75,18 @@ class EventTable extends Component {
         if (
             window.innerWidth > 1024 &&
             this.props.events.page.pagination &&
-            this.props.events.page.pagination.screen != "desktop") {
+            this.props.events.page.pagination.screen !== "desktop") {
             this.props.onfetchEventListPage(this.props.events.page);
         } else if (
             window.innerWidth < 1024 &&
             window.innerWidth > 600 &&
             this.props.events.page.pagination &&
-            this.props.events.page.pagination.screen != "tablet") {
+            this.props.events.page.pagination.screen !== "tablet") {
            this.props.onfetchEventListPage(this.props.events.page);
         } else if (
             window.innerWidth < 600 &&
             this.props.events.page.pagination &&
-            this.props.events.page.pagination.screen != "mobile") {
+            this.props.events.page.pagination.screen !== "mobile") {
            this.props.onfetchEventListPage(this.props.events.page);
         }
     }

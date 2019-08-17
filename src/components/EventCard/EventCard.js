@@ -102,7 +102,9 @@ class EventCard extends Component {
                     </Style.AppWrapper>
                 )}
 
-                <Style.Home><Link to="/">Home Page</Link></Style.Home>
+                <Link to="/">
+                    <Style.Home>Home Page</Style.Home>
+                </Link>
             </div>
         );
     }

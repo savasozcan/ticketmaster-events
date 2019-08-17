@@ -22,6 +22,10 @@ import Loader from "../Loader/Loader";
 // Styles
 import * as Style from './EventTableStyle.js';
 
+// Global Styles
+import * as Global from '../../styles/GlobalStyle';
+
+
 class EventTable extends Component {
     constructor(props) {
         super(props);
@@ -99,7 +103,7 @@ class EventTable extends Component {
                 {events.loading ? (
                     <Loader></Loader>
                 ) : events.data.length > 0 ? (
-                    <Style.AppWrapper>
+                    <Global.AppWrapper>
                         <Style.Table>
                             <tbody>
                                 {events.data.map((event, index) => {
@@ -159,7 +163,7 @@ class EventTable extends Component {
                                 </Style.NextAppButton>
                             </Style.Pagination>
                         )}
-                    </Style.AppWrapper>
+                    </Global.AppWrapper>
                 ) : (
                     <Style.NotFound>
                         <h2>Event not found.</h2>

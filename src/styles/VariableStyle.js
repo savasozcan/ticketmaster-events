@@ -1,17 +1,16 @@
 // Colors
 export const black='#000000';
 export const white='#ffffff';
-export const dark_gray='#4c3737';
+export const darkGray='#4c3737';
 export const gray='#7f6d6d';
-export const light_gray='#f5f5f5';
-export const hover_gray='#ede1e1';
-export const border_gray='#dbd0d0';
-export const dark_blue='#025e83';
-export const light_blue='#0b80aa';
+export const lightGray='#f5f5f5';
+export const hoverGray='#ede1e1';
+export const borderGray='#dbd0d0';
+export const darkBlue='#025e83';
+export const lightBlue='#0b80aa';
 export const green='#1db51d';
-
-export const primary_color=light_gray;
-export const secondary_color=dark_blue;
+export const primaryColor=lightGray;
+export const secondaryColor=darkBlue;
 
 // Fonts
-export const source_sans="'Source Sans Pro', sans-serif"
+export const sourceSans="'Source Sans Pro', sans-serif"

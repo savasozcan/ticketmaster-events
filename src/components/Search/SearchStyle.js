@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 // Styles
 import { deviceMin, deviceMax } from '../../styles/DeviceStyle';
-import * as Style from '../../styles/VariableStyle';
+import * as Variable from '../../styles/VariableStyle';
 
 // Global Styles
 import * as Global from '../../styles/GlobalStyle';
@@ -29,13 +29,13 @@ export const Input = styled.input`
     height: 50px;
     outline: none;
     border: none;
-    box-shadow: 0 5px 20px -8px ${Style.gray};
+    box-shadow: 0 5px 20px -8px ${Variable.gray};
     border-radius: 5px;
     padding-left: 10px;
     top: calc(50% - 20px);
     left: calc(50% - 200px);
     transition-duration: .6s;
-    font-family: ${Style.source_sans};
+    font-family: ${Variable.sourceSans};
     font-size: 16px;
 
     @media ${deviceMax.tablet} {
@@ -45,8 +45,8 @@ export const Input = styled.input`
 
 export const ButtonWrapper = styled.button`
     position: relative;
-    color: ${Style.white};
-    font-family: ${Style.source_sans};
+    color: ${Variable.white};
+    font-family: ${Variable.sourceSans};
     font-size: 18px;
     font-weight: 700;
     width: 150px;
@@ -54,7 +54,7 @@ export const ButtonWrapper = styled.button`
     padding: 15px 40px;
     margin-left: 15px;
     border-radius: 5px;
-    background: ${Style.dark_gray};
+    background: ${Variable.darkGray};
     overflow: hidden;
     cursor: pointer;
     border: none;

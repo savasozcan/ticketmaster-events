@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 // Styles
 import { deviceMin, deviceMax } from '../../styles/DeviceStyle';
-import * as Style from '../../styles/VariableStyle';
+import * as Variable from '../../styles/VariableStyle';
 
 // Global Style
 import * as Global from '../../styles/GlobalStyle';
@@ -11,7 +11,7 @@ import * as Global from '../../styles/GlobalStyle';
 
 export const AppWrapper = styled(Global.AppWrapper)`
     margin: 4% auto 0;
-    background-color: ${Style.hover_gray};
+    background-color: ${Variable.hoverGray};
 `
 
 export const InfoWrapper = styled.div`
@@ -63,7 +63,7 @@ export const InfoWrapper = styled.div`
 
     export const Name = styled.span`
     a {
-        color: ${Style.gray};
+        color: ${Variable.gray};
     }
 `
 export const LinkWrapper = styled.span`

@@ -3,14 +3,14 @@ import styled from 'styled-components';
 
 // Styles
 import { deviceMin, deviceMax } from '../../styles/DeviceStyle';
-import * as Style from '../../styles/VariableStyle';
+import * as Variable from '../../styles/VariableStyle';
 
 // Global Style
 import * as Global from '../../styles/GlobalStyle';
 
 
 export const AppWrapper = styled(Global.AppWrapper)`
-    background: linear-gradient(245deg,${Style.light_blue},${Style.secondary_color});
+    background: linear-gradient(245deg,${Variable.lightBlue},${Variable.secondaryColor});
     border-radius: 5px;
     padding: 20px;
     text-align: left;
@@ -18,7 +18,7 @@ export const AppWrapper = styled(Global.AppWrapper)`
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
     box-sizing: border-box;         /* Opera/IE 8+ */
     & h1, span, p, h3 {
-        color : ${Style.white};
+        color : ${Variable.white};
     }
     p, span {
         @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
@@ -32,7 +32,7 @@ export const AppWrapperInline = styled.div`
 `
 
 export const Name = styled.h1`
-    color: ${Style.white};
+    color: ${Variable.white};
 
     @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
         font-size: 18px;
@@ -51,8 +51,8 @@ export const Name = styled.h1`
 export const NameDetail = styled.h3`
     display: inline-block;
     font-weight: 700;
-    color: ${Style.white};
-    background: ${Style.light_blue};
+    color: ${Variable.white};
+    background: ${Variable.lightBlue};
     padding: 5px 10px;
     border-radius: 5px;
 
@@ -78,13 +78,13 @@ export const Home = styled.span`
     position: absolute;
     top: 2%;
     right: 10%;
-    background: ${Style.dark_gray};
-    color: ${Style.white};
+    background: ${Variable.darkGray};
+    color: ${Variable.white};
     padding: 15px 20px;
     border-radius: 5px;
     text-decoration: none;
     transition: transform .4s;
-    font-family: ${Style.source_sans};
+    font-family: ${Variable.sourceSans};
     font-weight: 700;
     &:hover {
         transform: scale(1.1);
@@ -103,7 +103,7 @@ export const Home = styled.span`
 `
 
 export const Zone = styled.span`
-  background: ${Style.green};
+  background: ${Variable.green};
   padding: 5px 10px;
   font-size: 12px;
   font-weight: 700;

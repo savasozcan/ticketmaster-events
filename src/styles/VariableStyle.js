@@ -10,8 +10,8 @@ export const dark_blue='#025e83';
 export const light_blue='#0b80aa';
 export const green='#1db51d';
 
-export const primary_color = light_gray;
-export const secondary_color = dark_blue;
+export const primary_color=light_gray;
+export const secondary_color=dark_blue;
 
 // Fonts
 export const source_sans="'Source Sans Pro', sans-serif"

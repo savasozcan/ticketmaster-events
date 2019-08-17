@@ -51,7 +51,8 @@ export const Row = styled.tr`
 `
 
 export const Detail = styled.td`
-    position: absolute;
+    position: relative;
+    float: right;
     right: 30px;
     margin-top: -110px;
     background: ${Style.gray};
@@ -65,18 +66,19 @@ export const Detail = styled.td`
 
     @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
         right: 0;
-        padding: 3px 6px;
-        margin-top: 0px;
-        margin-right: -25px;
+        padding: 0;
+        margin-top: 4px;
+        margin-right: -11px;    
     }
 
     @media screen and ${deviceMin.mobileM} and ${deviceMax.mobileL} {
-        margin-right: -28px;
+        margin-right: -14px;
+        margin-top: -4px;
     }
 
     @media screen and ${deviceMin.mobileL} and ${deviceMax.laptop} {
         right: 8px;
-        margin-top: -5px;
+        margin-top: -12px;
         padding: 5px 10px;
     }
 `
@@ -163,17 +165,31 @@ export const NextAppButton = styled(PreviousAppButton)`
 `
 
 export const DetailLink = styled.span`
+    display: block;
+    width: 46px;
+    height: 25px;
+
     & a{
+        position: absolute;
+        left: 0;
+        top: 0px;
+        width: 100%;
+        height: calc(100% - 16px);
+        padding-top: 15px;
         text-decoration: none;
         color: ${Style.white};
         font-size: 18px;
 
         @media screen and ${deviceMin.mobileS} and ${deviceMax.mobileL} {
-            font-size: 12px;
+            font-size: 10px;
+            padding-top: 6px;
+            height: calc(100% - 6px);
         }
 
         @media screen and ${deviceMin.mobileL} and ${deviceMax.laptop} {
             font-size: 15px;
+            padding-top: 8px;
+            height: calc(100% - 8px);
         }
     }
 `

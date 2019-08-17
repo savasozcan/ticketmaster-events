@@ -71,7 +71,7 @@ export const LinkWrapper = styled.span`
 `
 
 export const Link = styled.a.attrs({
-    className: "footer-info",
+    className: "footerInfo",
   })`
     font-size: 20px;
     font-weight: 700;

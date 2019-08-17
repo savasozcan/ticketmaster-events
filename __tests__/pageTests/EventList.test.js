@@ -8,7 +8,7 @@ import EventList from '../../src/pages/EventList/EventList'
 configure({ adapter: new Adapter() });
 
 describe('EventList Component', () => {
-    it('should ...', () => {
+    it('Should render without errors', () => {
         const wrapper = shallow(<EventList />);
         expect(wrapper.exists()).toBe(true)
     })

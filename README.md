@@ -140,6 +140,7 @@ Your app is ready to be deployed!
 - <a href="https://www.styled-components.com/">Styled-Component</a>
 - <a href="https://fabien-d.github.io/alertify.js/">Alertify Js</a>
 - <a href="https://jestjs.io/">Jest</a> - <a href="https://airbnb.io/enzyme/">Enzyme</a>
+- <a href="https://github.com/typicode/husky">Husky</a>
 - <a href="https://webpack.js.org/">Webpack</a>
 - <a href="https://www.npmjs.com/">NPM Package</a>
 

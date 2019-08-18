@@ -9,7 +9,7 @@
     "react-scripts": "3.0.1"
   },
   "scripts": {
-    "test": "jest --watchAll --verbose --updateSnapshot",
+    "test": "jest --verbose --updateSnapshot",
     "start": "webpack-dev-server --open --config webpack.dev.config.js",
     "build": "rimraf dist && webpack --config webpack.prod.config.js --progress --profile --color",
     "eject": "react-scripts eject"

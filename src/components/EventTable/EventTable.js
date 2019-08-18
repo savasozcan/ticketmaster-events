@@ -103,7 +103,7 @@ class EventTable extends Component {
                 {events.loading ? (
                     <Loader></Loader>
                 ) : events.data.length > 0 ? (
-                    <Global.AppWrapper data-test="tableWrapper">
+                    <Global.AppWrapper>
                         <Style.Table>
                             <tbody>
                                 {events.data.map((event, index) => {

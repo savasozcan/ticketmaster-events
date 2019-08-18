@@ -2,6 +2,7 @@
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import renderer from 'react-test-renderer';
 
 // Components
 import Loader from '../../src/components/Loader/Loader';
@@ -16,9 +17,7 @@ describe('Loader Component', () => {
     });
 
     test('Snaphot testing', () => {
-        const wrapper = shallow(
-            <Loader />
-        );
+        const wrapper = renderer.create(<Loader />).toJSON();
         expect(wrapper).toMatchSnapshot();
     })
 })

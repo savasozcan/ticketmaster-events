@@ -2,6 +2,7 @@
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import renderer from 'react-test-renderer';
 
 // Components
 import Footer from '../../src/components/Footer/Footer';
@@ -39,9 +40,7 @@ describe('Footer Component', () => {
     });
 
     test('Snaphot testing', () => {
-        const wrapper = shallow(
-            <Footer />
-        );
+        const wrapper = renderer.create(<Footer />).toJSON();
         expect(wrapper).toMatchSnapshot();
     })
 })

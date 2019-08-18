@@ -106,6 +106,23 @@ describe('EventList Component', () => {
 })
 ```
 
+#### Example for Snapshot
+
+```javascript
+// code away!
+import Adapter from 'enzyme-adapter-react-16';
+import renderer from 'react-test-renderer';
+
+configure({ adapter: new Adapter() });
+
+describe('Footer Component', () => {
+    test('Snaphot testing', () => {
+        const wrapper = renderer.create(<Footer />).toJSON();
+        expect(wrapper).toMatchSnapshot();
+    });
+})
+```
+
 ### `npm run build`
 
 Builds the app for production to the `dist` folder.<br>

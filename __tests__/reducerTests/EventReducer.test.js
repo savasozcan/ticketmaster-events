@@ -6,7 +6,7 @@ import {
 } from '../../src/reducers/eventReducer';
 
 describe('event reducer', () => {
-    it('should return the initial state', () => {
+    it('Should return the initial state', () => {
         expect(eventListReducer(listState, {})).toEqual({
             data: [],
             keyword: "",
@@ -14,7 +14,7 @@ describe('event reducer', () => {
             loading: false,
         });
     });
-    it('should store the retrieve', () => {
+    it('Should store the retrieve', () => {
         expect(eventRetrieveReducer(retrieveState, {})).toEqual({
             data: {},
             loading: false,

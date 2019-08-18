@@ -1,7 +1,11 @@
+// Packages
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+
+// Components
 import Footer from '../../src/components/Footer/Footer';
+
 
 configure({ adapter: new Adapter() });
 
@@ -33,4 +37,11 @@ describe('Footer Component', () => {
         const wrapper = findTestAttr(component, 'footerLink');
         expect(wrapper.length).toBe(2)
     });
+
+    test('Snaphot testing', () => {
+        const wrapper = shallow(
+            <Footer />
+        );
+        expect(wrapper).toMatchSnapshot();
+    })
 })

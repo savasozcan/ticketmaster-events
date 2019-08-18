@@ -14,6 +14,11 @@
     "build": "rimraf dist && webpack --config webpack.prod.config.js --progress --profile --color",
     "eject": "react-scripts eject"
   },
+  "husky": {
+    "hooks": {
+      "pre-push": "CI=true npm test"
+    }
+  },
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -48,6 +53,7 @@
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "html-webpack-template": "^6.2.0",
+    "husky": "^3.0.4",
     "jest": "^24.7.1",
     "jest-snapshot": "^24.0.0",
     "mini-css-extract-plugin": "^0.8.0",
